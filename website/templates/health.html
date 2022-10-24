@@ -1,0 +1,127 @@
+{% extends "base.html" %} {% block title %}Health Analysis{% endblock %}
+{% block content%}
+<!-- health section start -->
+<div class="health_section layout_padding">
+   <div class="container">
+      <h1 class="health_taital">Kindly Answer Few Questions </h1>
+      <p class="health_text">Your responses will be 100% secure with us and will only be shared to the doctors at your consent </p>
+      <div class="health_section layout_padding">
+         <div class="row">
+            <div class="col-sm-7"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- health section end -->
+<form class="contact" method="post" action="/upload" enctype="multipart/form-data">
+         
+   <div class="col50 colleft">
+      <div class="col50 colleft">
+         <div class="wd50">
+            <label name="gender">What is your Gender ?</label><br>
+            <input type="radio" id="Male" name="gender" value="child"/>
+               <label for="child">Male</label><br>
+               <input type="radio" id="Female" name="gender" value="child"/>
+               <label for="child">Female</label><br>
+         </div>
+      <div class="wd100"><hr></div>
+      <div class="col50 colright">
+         <div class="wd50">
+            <label name="">Choose your age group :</label><br>
+            <input type="radio" id="40-" name="age" value="child"/>
+            <label for="child">Below 40</label><br>
+            <input type="radio" id="40-59" name="age" value="child"/>
+            <label for="child">40-59</label><br>
+            <input type="radio" id="60+" name="age" value="child"/>
+            <label for="child">60 and above</label><br>
+         </div>
+      </div>
+
+      <div class="wd100"><hr></div>
+
+      <div class="col50 colright">
+         <div class="wd50">
+            <label name="">Did your skin burnout when you go out in sun ?</label><br>
+
+            <input type="radio" id="skintan" name="yes" value="child"/>
+            <label for="child">Yes the skin burns</label><br>
+            <input type="radio" id="skintan" name="no" value="child"/>
+            <label for="child">No, it sometimes get burn</label><br>
+            <input type="radio" id="skintan" name="tan" value="child"/>
+            <label for="child">It just gets tan</label><br>
+         </div>
+      </div>
+      <div class="wd100"><hr></div>
+      <div class="col50 colright">
+         <div class="wd50">
+            <label name="">How many moles or lump do you have on your body ?</label><br>
+            <input type="radio" id="moles" name="many" value="child"/>
+            <label for="child">Many </label><br>
+            <input type="radio" id="moles" name="few" value="child"/>
+            <label for="child">Few</label><br>
+            <input type="radio" id="moles" name="none" value="child"/>
+            <label for="child">None</label><br>
+         </div>  
+      </div>
+      <div class="col50 colright"></div>
+   </div>
+   
+   <div class="wd100"><hr></div>
+   
+   <div class="col50 colright">
+      <div class="wd50">
+         <p>Check All the previous health problems that apply : </p>
+         <label name=""><input type="checkbox" value=""> Diabetes</label>
+         <label name=""><input type="checkbox" value=""> Asthma</label>
+         <label name=""><input type="checkbox" value=""> Thyroid</label>
+         <label name=""><input type="checkbox" value=""> Blood Infection</label>            
+      </div>
+   
+   </div>
+   
+   <div class="wd100"><hr></div>
+
+   <div class="wd50">
+      <p>Does Any of your family member has melanoma</p>
+      <input type="radio" id="child" name="age" value="child"/>
+      <label for="child">Yes</label>
+      <input type="radio" id="child" name="age" value="child"/>
+      <label for="child">No</label><br>
+   </div>
+
+   <div class="wd50">
+      <div class="col50 colleft">
+         <div class="wd50">
+            <label name="">Affected Area</label>
+            <input type="text"/>
+         </div>
+      </div>
+      <div class="wd50">
+         <div class="col50 colleft">
+            <div class="wd50">
+               <label name="">Color of the Spot</label>
+               <input type="text"/>
+            </div>
+         </div>
+      </div>
+      <div class="wd50">
+         <div class="col50 colleft">
+            <div class="wd50">
+               <input name="file" type="file" placeholder="Choose file"/>
+            </div>
+         </div>
+      </div>
+      <div class="wd50">
+         <div class="col50 colleft">
+            <div class="wd50">
+               <button name="submit" class="btn btn-primary" type="submit">Submit</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</form>
+{% endblock %}
+    
+        
+  
+   

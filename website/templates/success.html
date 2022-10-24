@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Success{% endblock %}
+{% block content %}
+<h2 align="center" class="light_blue">Hooray! Your form is submitted!</h2>
+{% if img %}
+<div align="center" class="form-group">
+<img height="250" width="250" src={{ url_for('static', filename='prediction/images/'+img) }}/>
+</div>
+<div align="center" class="form-group">
+    <table class="table">
+        <tr><h4>Cancer Probability Assessment</h4></tr>
+        <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>
+        <tr><td>#1</td><td>{{ predictions["pred1"]["fact1"] }}</td><td>{{ predictions["pred1"]["prob1"] }}%</td></tr>
+        <tr><td>#2</td><td>{{ predictions["pred2"]["fact2"] }}</td><td>{{ predictions["pred2"]["prob2"] }}%</td></tr>
+        <tr><td>#3</td><td>{{ predictions["pred3"]["fact3"] }}</td><td>{{ predictions["pred3"]["prob3"] }}%</td></tr>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
