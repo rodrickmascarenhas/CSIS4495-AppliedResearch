@@ -1,48 +1,63 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
 content %}
-<form method="POST">
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
   <h3 align="center">Sign Up</h3>
   <div class="form-group">
-    <label for="email">Email Address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-    />
+    <label>Username</label>
+    {% if form.username.errors %}
+      {{ form.username(class="form-control is-invalid")}}
+      <div class="invalid-feedback">
+        {% for error in form.username.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% else %}
+      {{ form.username(class="form-control") }}
+    {% endif %}
   </div>
   <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="firstName"
-      name="firstName"
-      placeholder="Enter first name"
-    />
+    <label>Email</label>
+    {% if form.email.errors %}
+      {{ form.email(class="form-control is-invalid")}}
+      <div class="invalid-feedback">
+        {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% else %}
+      {{ form.email(class="form-control") }}
+    {% endif %}
   </div>
   <div class="form-group">
-    <label for="password1">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password1"
-      name="password1"
-      placeholder="Enter password"
-    />
+    <label>Password</label>
+    {% if form.password.errors %}
+      {{ form.password(class="form-control is-invalid")}}
+      <div class="invalid-feedback">
+        {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% else %}
+      {{ form.password(class="form-control") }}
+    {% endif %}
   </div>
   <div class="form-group">
-    <label for="password2">Password (Confirm)</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password2"
-      name="password2"
-      placeholder="Confirm password"
-    />
+    <label>Confirm Password</label>
+    {% if form.confirm_password.errors %}
+      {{ form.confirm_password(class="form-control is-invalid")}}
+      <div class="invalid-feedback">
+        {% for error in form.confirm_password.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% else %}
+      {{ form.confirm_password(class="form-control") }}
+    {% endif %}
   </div>
   <br />
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    {{ form.submit(class="btn btn-primary")}}
+  </div>
 </form>
 {% endblock %}

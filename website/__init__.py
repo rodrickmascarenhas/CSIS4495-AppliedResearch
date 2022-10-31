@@ -3,9 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
+
 db = SQLAlchemy()
 DB_NAME = "database.db"
-
 
 def create_app():
     app = Flask(__name__)
@@ -19,22 +19,23 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    from .models import User, Note
+    from .models import User, Post
 
-    create_database(app)
+    if not path.exists('website/' + DB_NAME):
+        db.create_all(app=app)
+
+    app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
+    app.config['MAIL_PORT'] = 587
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USERNAME'] = 'rodster123sanfrancis@gmail.com'
+    app.config['MAIL_DEFAULT_SENDER'] = 'rodster123sanfrancis@gmail.com'
+    app.config['MAIL_PASSWORD'] = 'kinng2tonnn'
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
-
+    
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
-
     return app
-
-
-def create_database(app):
-    if not path.exists('website/' + DB_NAME):
-        db.create_all(app=app)
-        print('Created Database!')

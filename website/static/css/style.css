@@ -25,9 +25,11 @@
 html {
     scroll-behavior: smooth;
 }
-
+/* changes */
 body {
     color: #666666;
+    width: auto;
+    background-color: #222222;
     font-size: 14px;
     font-family: Poppins;
     line-height: 1.80857;
@@ -140,13 +142,21 @@ img {
     max-width: 100%;
     height: auto;
 }
+/*changes*/
 table{
     width: 50%;
     height: 20%;
 }
 table,td,th{
+    text-align: center;
     border: solid 0.5px black;
-    background-color: beige;
+}
+th{
+    color: rgba(255, 250, 250, 0.845);
+    background-color: rgba(19, 29, 70, 0.952);
+}
+td{
+    background-color: rgba(0, 0, 0, 0);
 }
 
  :focus {
@@ -209,8 +219,9 @@ button {
 }
 
 .header_section {
+    position: sticky;
+    top: 0;
     width: 100%;
-    float: left;
     background-image: url(../images/banner-bg.png);
     height: auto;
     background-size: 100%;
@@ -226,24 +237,21 @@ button {
 .bg-light {
     background-color: transparent !important;
 }
-
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 20px;
     padding-left: 20px;
     color: #272a2a;
-    font-size: 18px;
+    font-size: 1.15rem;
 }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover, .light_blue {
     color: #4598ce;
 }
-
 .navbar {
     padding: .5rem 70px;
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: #4598ce;
 }
-
 .banner_section {
     width: 100%;
     float: left;
@@ -551,11 +559,17 @@ button {
     animation: fadeEffect 1.3s infinite ease;
     box-shadow: 0px 0px 10px 0px;
 }
+.profile{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+}
 
 @keyframes fadeEffect {
     0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 1
+        opacity: 1;
     }
     100% {
         transform: translate(-50%, -50%) scale(1.2);

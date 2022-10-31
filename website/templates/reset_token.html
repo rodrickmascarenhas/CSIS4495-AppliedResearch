@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Password Reset{% endblock %}
+{% block content %}
+<form method="POST">
+    <h3>Enter your email:</h3>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input name="email" type="email" class="form-control" placeholder="Enter email"/>
+    </div>
+    <div class="form-group">
+        <button name="submit" type="submit" class="btn btn-primary">Generate Recovery Token</button>
+    </div>    
+</form>
+{% endblock %}
