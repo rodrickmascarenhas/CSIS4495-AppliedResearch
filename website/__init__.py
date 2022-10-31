@@ -29,7 +29,7 @@ def create_app():
     app.config['MAIL_USE_TLS'] = True
     app.config['MAIL_USERNAME'] = 'rodster123sanfrancis@gmail.com'
     app.config['MAIL_DEFAULT_SENDER'] = 'rodster123sanfrancis@gmail.com'
-    app.config['MAIL_PASSWORD'] = 'kinng2tonnn'
+    app.config['MAIL_PASSWORD'] = ''
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
