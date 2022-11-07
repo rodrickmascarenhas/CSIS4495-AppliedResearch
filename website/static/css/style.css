@@ -367,7 +367,6 @@ button {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #252525;
     font-weight: bold;
 }
 
@@ -596,12 +595,19 @@ button {
     border-radius: 15px;
     padding: 40px;
 }
+.box_main1 {
+    width: 100%;
+    float: left;
+    background-color: #252525;
+    height: auto;
+    border-radius: 15px;
+}
 
-.box_main:hover {
+.box_main:hover, .box_main1:hover {
     background-color: #1becde;
 }
 
-.box_main.active {
+.box_main.active, .box_main1.active {
     background-color: #1becde;
 }
 

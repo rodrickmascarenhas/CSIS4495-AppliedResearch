@@ -1,0 +1,27 @@
+{% extends "base.html" %}{% block title %}Analysis Tool{% endblock %}{% block content %}
+<div id="main_slider" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+       <div class="banner_section">
+          <div class="carousel-item active">
+                <div align="center" class="layout_padding">
+                    <h2 align="center" class="health_taital light_blue">Skin Cancer Probability Assessment</h2>
+                </div>
+                <div align="center" class="form-group layout_padding">
+                    <img height="250" width="250" src={{ url_for('static', filename='images/test/'+img) }}/>
+                </div>
+                <div align="center" class="form-group layout_padding">
+                    <h6 align="center" class="health_taital">Predicted Probabilities (in %)</h6>
+                </div>
+                <div class="layout_padding">
+                    <table class="table">
+                        <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>
+                        <tr><td>#1</td><td>{{ predictions["pred1"]["fact1"] }}</td><td>{{ predictions["pred1"]["prob1"] }}%</td></tr>
+                        <tr><td>#2</td><td>{{ predictions["pred2"]["fact2"] }}</td><td>{{ predictions["pred2"]["prob2"] }}%</td></tr>
+                        <tr><td>#3</td><td>{{ predictions["pred3"]["fact3"] }}</td><td>{{ predictions["pred3"]["prob3"] }}%</td></tr>
+                    </table>
+                </div>
+          </div>
+       </div>
+    </div>
+</div>
+{% endblock %}

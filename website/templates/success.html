@@ -1,19 +1,40 @@
-{% extends "base.html" %}
-{% block title %}Success{% endblock %}
-{% block content %}
-<h2 align="center" class="light_blue">Hooray! Your form is submitted!</h2>
+{% extends "base.html" %}{% block title %}Success{% endblock %}{% block content %}
 {% if img %}
-<div align="center" class="form-group">
-<img height="250" width="250" src={{ url_for('static', filename='images/test/'+img) }}/>
-</div>
-<div align="center" class="form-group">
-    <table class="table">
-        <tr><h4>Cancer Probability Assessment</h4></tr>
-        <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>
-        <tr><td>#1</td><td>{{ predictions["pred1"]["fact1"] }}</td><td>{{ predictions["pred1"]["prob1"] }}%</td></tr>
-        <tr><td>#2</td><td>{{ predictions["pred2"]["fact2"] }}</td><td>{{ predictions["pred2"]["prob2"] }}%</td></tr>
-        <tr><td>#3</td><td>{{ predictions["pred3"]["fact3"] }}</td><td>{{ predictions["pred3"]["prob3"] }}%</td></tr>
-    </table>
+<div id="main_slider" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+       <div class="banner_section">
+          <div class="carousel-item active">
+                <div class="layout_padding">
+                    <h2 align="center" class="health_taital light_blue">Hooray! Your form is submitted!</h2>
+                </div>
+                <div class="news_section layout_padding">
+                    <h3 class="health_taital">You can choose either analyze your pic or speak with one of our specialists...</h3>
+                    <div class="news_section_2 layout_padding">
+                    <div class="row">
+                        <a class="col-lg-4 col-sm-6" href="/analyze/{{ img }}">
+                            <div class="box_main1">
+                                <div class="icon_1">
+                                    <img src="{{ url_for('static',filename='images/icon-6.png') }}">
+                                </div>
+                                <h4 class="daily_text_1">Run</h4>
+                            </div>
+                        </a>
+                        <div class="col-lg-4 col-sm-6">
+                            <h4 align="center" class="health_taital icon_1 light_blue">Or</h4>
+                        </div>
+                        <a class="col-lg-4 col-sm-6" href="#">
+                            <div class="box_main1">
+                                <div class="icon_1">
+                                    <img src="{{ url_for('static',filename='images/icon-2.png') }}">
+                                </div>
+                                <h4 class="daily_text_1">Chat</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+          </div>
+       </div>
+    </div>
 </div>
 {% endif %}
 {% endblock %}

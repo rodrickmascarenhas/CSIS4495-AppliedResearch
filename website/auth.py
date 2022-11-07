@@ -65,12 +65,6 @@ def sign_up():
         return redirect (url_for('views.home'))
     return render_template("sign_up.html",form=form)
 
-@auth.route('/health')
-@login_required
-def health():
-    profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
-    return render_template("health.html", profile_pic=profile_pic)
-
 @auth.route("/edit")
 @login_required
 def account():
@@ -134,6 +128,33 @@ def edit(params):
         return render_template('update.html',form=form,profile_pic=profile_pic,edit_image=True)
     return render_template("update.html",profile_pic=profile_pic,form=form)
 
+@auth.route('/health')
+@login_required
+def health():
+    profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
+    return render_template("health.html", profile_pic=profile_pic)
+
+@auth.route('/upload',methods=['GET','POST'])
+@login_required
+def upload():
+    profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
+    target_img = os.path.join('website','static','images','test')
+    if not os.path.exists(target_img):
+        os.makedirs(target_img)
+    if request.method == 'POST':
+        if not request.files:
+            flash("Invalid file", 'error')
+            return render_template("health.html", profile_pic=profile_pic)
+        file = request.files['file']
+        if not file or not allowed_file(file.filename):
+            flash("Please upload images of jpg, jpeg and png extension only!", 'error')
+            return render_template("health.html", profile_pic=profile_pic)
+        else:
+            target_img = os.path.join('website','static','images','test')
+            file.save(os.path.join(target_img, file.filename))
+            img = file.filename
+            return render_template("success.html", img=img)
+
 #check if file is supported type
 def allowed_file(filename):
     return '.' in filename and \
@@ -165,27 +186,13 @@ def predict(filename , model):
     return factor, probability
 
 # checks if file is appropriate, calls predict() and displays and return with image and predictions
-@auth.route('/upload',methods=['GET','POST'])
+@auth.route('/analyze/<filename>',methods=['GET','POST'])
 @login_required
-def upload():
+def analyze(filename):
     error = ""
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     target_img = os.path.join('website','static','images','test')
-    if not os.path.exists(target_img):
-        os.makedirs(target_img)
-    if request.method != 'POST':
-        return render_template("health.html")
-    if not request.files:
-        flash("Invalid file", 'error')
-        return render_template("health.html")
-    file = request.files['file']
-    if not file or not allowed_file(file.filename):
-        flash("Please upload images of jpg, jpeg and png extension only!", 'error')
-        return render_template("health.html") 
-
-    file.save(os.path.join(target_img , file.filename))
-    img_path = os.path.join(target_img , file.filename)
-    img = file.filename
+    img_path = os.path.join(target_img , filename)
     factor, probability = predict(img_path,model)
 
     predictions = {
@@ -193,7 +200,7 @@ def upload():
             "pred2":{"fact2":factor[1],"prob2":probability[1]},
             "pred3":{"fact3":factor[2],"prob3": probability[2]}
         }
-    return render_template('success.html' , img=img, profile_pic=profile_pic, predictions=predictions)
+    return render_template('tool.html' ,img=filename, profile_pic=profile_pic, predictions=predictions)
 
     """
 def generate_reset_token(user):
