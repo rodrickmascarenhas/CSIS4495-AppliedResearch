@@ -5,6 +5,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from website import db
 import os
 import secrets
+import sqlalchemy as db_alchemy
 from .forms import RegisterForm, UpdateForm, LoginForm, RequestResetForm, ResetPasswordForm
 from flask_mail import Mail, Message
 from tensorflow.keras.models import load_model
@@ -13,6 +14,7 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 auth = Blueprint('auth', __name__)
 
 model = load_model(os.path.join(os.getcwd(), 'cancerdetection.hdf5'))
+
 ALLOWED_EXT = set(['jpg','jpeg','png','jfif'])
 classes = {0:"Actinic keratoses",1:"Basal cell carcinoma",2:"Benign keratosis-like lesions",3:"Dermatofibroma",
 4:"Melanoma",5:"Melanocytic nevi",6:"Vascular lesions"}
@@ -20,22 +22,49 @@ classes = {0:"Actinic keratoses",1:"Basal cell carcinoma",2:"Benign keratosis-li
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
+    if not User.query.filter_by(doctor=1).all():
+        insert_docs()
+    if request.method == 'POST':
         email = form.email.data
         password = form.password.data
-        user = User.query.filter_by(email=email).first()
-        if user:
-            if check_password_hash(user.password, password):
-                flash("Logged in successfully!", 'success')
-                profile_pic = url_for('static',filename='images/profile_pics/'+user.image)
-                login_user(user,remember=True)
-                return redirect(url_for('views.home',profile_pic=profile_pic))
+        if request.form.get('user') == 'User':
+            user = User.query.filter_by(email=email).first()
+            if user and not user.doctor:
+                if check_password_hash(user.password, password):
+                    flash("Logged in successfully!", 'success')
+                    profile_pic = url_for('static',filename='images/profile_pics/'+user.image)
+                    login_user(user,remember=True)
+                    return redirect(url_for('views.home',profile_pic=profile_pic))
+                else:
+                    flash('Incorrect password. Try again!', 'error')
             else:
-                flash('Incorrect password. Try again!', 'error')
+                flash('Unidentified sign-in! Please sign up!', 'error')
+        elif request.form.get('doctor') == 'Doctor':
+            user = User.query.filter_by(email=email).first()
+            if user and user.doctor:
+                if check_password_hash(user.password, password):
+                    flash("Logged in successfully!", 'success')
+                    profile_pic = url_for('static',filename='images/profile_pics/'+user.image)
+                    login_user(user,remember=True)
+                    return redirect(url_for('views.home',profile_pic=profile_pic))
+                else:
+                    flash('Incorrect password. Try again!','error')
+            else:
+                flash("Unidentified sign-in! Check your credentials!", 'error')
         else:
             flash('Invalid user. Please sign up!', 'error')
     return render_template("login.html",form=form)
 
+# bulk insert records
+def insert_docs():
+    db.session.add(User(email="johnq@gmail.com", username="Dr.JohnQ", password=generate_password_hash(
+                "johnquasimoto", method='sha256'), doctor=True, length = len("johnquasimoto"), fee=210))
+    db.session.add(User(email="jackiec@gmail.com", username="Dr.JackieC", password=generate_password_hash(
+                        "jackieconnelly", method='sha256'), doctor=True, length = len("jackieconnelly"), fee=245))
+    db.session.add(User(email="timg@gmail.com", username="Dr.TimG", password=generate_password_hash(
+                        "timgrayson", method='sha256'), doctor=True, length = len("timgrayson"), fee=235))
+    db.session.commit()
+    
 @auth.route('/logout')
 @login_required
 def logout():
@@ -52,10 +81,10 @@ def sign_up():
         user = User.query.filter_by(username=username).first()
         em = User.query.filter_by(email=email).first()
         if user:
-            flash("Username exists. Select different username!")
+            flash("Username exists. Select different username!",'error')
             return render_template("sign_up.html",form=form)
         if em:
-            flash("Email exists. Select different email address!")
+            flash("Email exists. Select different email address!",'error')
             return render_template("sign_up.html",form=form)
         new_user = User(email=email, username=username, password=generate_password_hash(
                 password, method='sha256'), length = len(password))
@@ -64,6 +93,18 @@ def sign_up():
         flash('Account created!', 'success')
         return redirect (url_for('views.home'))
     return render_template("sign_up.html",form=form)
+
+@auth.route("/user")
+def user():
+    query = db_alchemy.select([User.email,User.username]).where(db_alchemy.and_(User.username == 'rodrick'))
+    users = db.session.execute(query)
+    return render_template("users.html",user=users)
+
+@auth.route("/doctor")
+def doctor():
+    query = db_alchemy.select([Doctor.email,Doctor.username])
+    doctors = db.session.execute(query)
+    return render_template("doctors.html",doctor=doctors)
 
 @auth.route("/edit")
 @login_required
@@ -139,6 +180,9 @@ def health():
 def upload():
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     target_img = os.path.join('website','static','images','test')
+    if request.form.get('gender') is None or request.form.get('age') is None or request.form.get('burns') is None or request.form.get('moles') is None or request.form.get('inherit') is None or request.form.get('area') == "" or request.form.get('color') == "":
+        flash("Please fill all appropriate responses","error")
+        return render_template("health.html", profile_pic=profile_pic)
     if not os.path.exists(target_img):
         os.makedirs(target_img)
     if request.method == 'POST':
@@ -166,41 +210,29 @@ def predict(filename , model):
     img = img_to_array(img).reshape(1,75,100,3).astype('float32')
     img = img/255.0
     result = model.predict(img)
-
     dict_result = {}
     probability = []
     factor = []
-
     for i in range(len(classes)):
         dict_result[result[0][i]] = classes[i]
-
     res = result[0]
     res.sort()
     res = res[::-1]
     prob = res[:3]
-
     for i in range(3):
         probability.append(round(prob[i]*100,2))
         factor.append(dict_result[prob[i]])
-
     return factor, probability
 
 # checks if file is appropriate, calls predict() and displays and return with image and predictions
 @auth.route('/analyze/<filename>',methods=['GET','POST'])
 @login_required
 def analyze(filename):
-    error = ""
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     target_img = os.path.join('website','static','images','test')
     img_path = os.path.join(target_img , filename)
     factor, probability = predict(img_path,model)
-
-    predictions = {
-            "pred1":{"fact1":factor[0],"prob1":probability[0]},
-            "pred2":{"fact2":factor[1],"prob2":probability[1]},
-            "pred3":{"fact3":factor[2],"prob3": probability[2]}
-        }
-    return render_template('tool.html' ,img=filename, profile_pic=profile_pic, predictions=predictions)
+    return render_template('tool.html', img=filename, profile_pic=profile_pic, fact=factor, prob=probability)
 
     """
 def generate_reset_token(user):

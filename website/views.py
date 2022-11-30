@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify, url_for
 from flask_login import login_required, current_user
-from website.models import Post
+from website.models import Form
 from website import db
 import json
 
@@ -22,13 +22,12 @@ def home():
     """
     return render_template("home.html",profile_pic=profile_pic,current_user=current_user)
 
-
-@views.route('/delete-post', methods=['POST'])
-def delete_post():
-    post = json.loads(request.data)
-    postId = post['postId']
-    post = Post.query.get(postId)
-    if post:
-        db.session.delete(post)
+@views.route('/delete-form', methods=['POST'])
+def delete_form():
+    form = json.loads(request.data)
+    formId = form['formId']
+    form = Form.query.get(formId)
+    if form:
+        db.session.delete(form)
         db.session.commit()
     return jsonify({})

@@ -4,22 +4,46 @@
        <div class="banner_section">
           <div class="carousel-item active">
                 <div align="center" class="layout_padding">
-                    <h2 align="center" class="health_taital light_blue">Skin Cancer Probability Assessment</h2>
+                    <p align="center" class="health_taital light_blue">Skin Cancer Probability Assessment</p>
                 </div>
-                <div align="center" class="form-group layout_padding">
-                    <img height="250" width="250" src={{ url_for('static', filename='images/test/'+img) }}/>
+                <div align="center" class="layout_padding">
+                    <img height="280" width="280" src={{ url_for('static', filename='images/test/'+img) }}/>
                 </div>
-                <div align="center" class="form-group layout_padding">
-                    <h6 align="center" class="health_taital">Predicted Probabilities (in %)</h6>
+                <div align="center" class="layout_padding">    
+                    <p align="center" class="health_taital">Predicted Probabilities (in %)</p>
                 </div>
-                <div class="layout_padding">
-                    <table class="table">
-                        <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>
-                        <tr><td>#1</td><td>{{ predictions["pred1"]["fact1"] }}</td><td>{{ predictions["pred1"]["prob1"] }}%</td></tr>
-                        <tr><td>#2</td><td>{{ predictions["pred2"]["fact2"] }}</td><td>{{ predictions["pred2"]["prob2"] }}%</td></tr>
-                        <tr><td>#3</td><td>{{ predictions["pred3"]["fact3"] }}</td><td>{{ predictions["pred3"]["prob3"] }}%</td></tr>
-                    </table>
-                </div>
+                <table class="table">
+                    <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>
+                    {% for i in range(3) %}
+                        <tr>
+                            <td>#{{ i+1 }}</td>
+                            <td>
+                                {{ fact[i] }} <a href="#" class="submenuTitle"><img height="25" width="25" src={{ url_for('static', filename='images/question.png') }}/></a>
+                                <ul class="submenu preds">
+                                    {% if fact[i] == 'Actinic keratoses' %}
+                                    <p>Types of squamous cell carcinoma that are noninvasive and can be treated<br/>locally 
+                                        without surgery</p>
+                                    {% elif fact[i] == 'Basal cell carcinoma' %}
+                                    <p>A type of epithelial skin cancer that seldom spreads but, if left untreated,<br/>can 
+                                        be fatal.</p>
+                                    {% elif fact[i] == 'Benign keratosis-like lesions' or fact[i] == 'Dermatofibroma' %}
+                                    <p>Skin lesions that are either benign growth or an infammatory response<br/>to minor 
+                                        trauma</p>
+                                    {% elif fact[i] == 'Melanoma' %}
+                                    <p>Melanoma is a cancerous tumour that develops from melanocytes and can take many 
+                                        diferent forms.<br/>If caught early enough, it can be treated with a basic surgical procedure</p>
+                                    {% elif fact[i] == 'Melanocytic nevi' %}
+                                    <p>Skin lesions are benign neoplasms of melanocytes and appear in a variety of shapes 
+                                        and sizes.<br/>From a dermatoscopic standpoint, the variants may difer dramatically</p>
+                                    {% else %}
+                                    <p>Skin lesions can be associated with benign or malignant angiomas.<br/>It is better to get it checked.</p>
+                                    {% endif %}
+                                </ul>
+                            </td>
+                            <td>{{ prob[i] }}%</td>
+                        </tr>
+                    {% endfor %}
+                </table>
           </div>
        </div>
     </div>

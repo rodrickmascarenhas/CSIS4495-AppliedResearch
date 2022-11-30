@@ -3,37 +3,38 @@
 <div id="main_slider" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
        <div class="banner_section">
-          <div class="carousel-item active">
+            <div class="carousel-item active">
                 <div class="layout_padding">
                     <h2 align="center" class="health_taital light_blue">Hooray! Your form is submitted!</h2>
                 </div>
                 <div class="news_section layout_padding">
                     <h3 class="health_taital">You can choose either analyze your pic or speak with one of our specialists...</h3>
                     <div class="news_section_2 layout_padding">
-                    <div class="row">
-                        <a class="col-lg-4 col-sm-6" href="/analyze/{{ img }}">
-                            <div class="box_main1">
-                                <div class="icon_1">
-                                    <img src="{{ url_for('static',filename='images/icon-6.png') }}">
+                        <div class="row">
+                            <a class="col-lg-4 col-sm-6" href="/analyze/{{ img }}">
+                                <div class="box_main1">
+                                    <div class="icon_1">
+                                        <img src="{{ url_for('static',filename='images/icon-6.png') }}">
+                                    </div>
+                                    <h4 class="daily_text_1">Run</h4>
                                 </div>
-                                <h4 class="daily_text_1">Run</h4>
+                            </a>
+                            <div class="col-lg-4 col-sm-6">
+                                <h4 align="center" class="health_taital icon_1 light_blue">Or</h4>
                             </div>
-                        </a>
-                        <div class="col-lg-4 col-sm-6">
-                            <h4 align="center" class="health_taital icon_1 light_blue">Or</h4>
+                            <a class="col-lg-4 col-sm-6" href="#">
+                                <div class="box_main1">
+                                    <div class="icon_1">
+                                        <img src="{{ url_for('static',filename='images/icon-2.png') }}">
+                                    </div>
+                                    <h4 class="daily_text_1">Chat</h4>
+                                </div>
+                            </a>
                         </div>
-                        <a class="col-lg-4 col-sm-6" href="#">
-                            <div class="box_main1">
-                                <div class="icon_1">
-                                    <img src="{{ url_for('static',filename='images/icon-2.png') }}">
-                                </div>
-                                <h4 class="daily_text_1">Chat</h4>
-                            </div>
-                        </a>
                     </div>
                 </div>
-          </div>
-       </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endif %}

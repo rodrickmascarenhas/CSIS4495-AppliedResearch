@@ -2,7 +2,7 @@
 %}
 <form method="POST" action="">
   {{ form.hidden_tag() }}
-  <h3 align="center">Login</h3>
+  <h6 class="health_taital icon_1 light_blue">Login</h3>
   <div class="form-group">
     <label>Email Address</label>
       {% if form.email.errors %}
@@ -29,10 +29,14 @@
       {{ form.password(class="form-control") }}
     {% endif %}
   </div>
-  <br />
-  <div class="form-group">
+  <div class="form-group daily_text">
+    <input class="float_start doc_button" type="submit" direction="bottom" name="doctor" value="Doctor" src="{{ url_for('static',filename='images/doctor1.png') }}" />
+    <h2 class="float_start icon_2 light_blue">/</h2>
+    <input class="float_end pat_button" type="submit" name="user" value="User" src="{{ url_for('static',filename='images/patient2.png') }}" />
+  </div>
+  <!--<div class="form-group">
     {{ form.submit(class="btn btn-primary") }}
     <a href="{{ url_for('auth.reset_request') }}">Forgot Password?</a>
-  </div>
+  </div>-->
 </form>
 {% endblock %}

@@ -1,0 +1,15 @@
+<div class="health_section layout_padding">
+   <h1 class="health_taital">Doctors </h1>
+      <div class="health_section layout_padding">
+         <div class="row">
+            {% if doctor %}
+               {% for doc in doctor%}
+                  <div class="col-sm-7">{{ doc }}</div>
+               {% endfor %}
+            {% endif %}
+         </div>
+      </div>
+</div>
+        
+  
+   
