@@ -1,10 +1,11 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app
-from .models import User
+from .models import User, Form
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from website import db
 import os
 import secrets
+import uuid
 import sqlalchemy as db_alchemy
 from .forms import RegisterForm, UpdateForm, LoginForm, RequestResetForm, ResetPasswordForm
 from flask_mail import Mail, Message
@@ -12,7 +13,6 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 auth = Blueprint('auth', __name__)
-
 model = load_model(os.path.join(os.getcwd(), 'cancerdetection.hdf5'))
 
 ALLOWED_EXT = set(['jpg','jpeg','png','jfif'])
@@ -87,24 +87,25 @@ def sign_up():
             flash("Email exists. Select different email address!",'error')
             return render_template("sign_up.html",form=form)
         new_user = User(email=email, username=username, password=generate_password_hash(
-                password, method='sha256'), length = len(password))
+                password, method='sha256'), length=len(password))
         db.session.add(new_user)
         db.session.commit()
         flash('Account created!', 'success')
         return redirect (url_for('views.home'))
     return render_template("sign_up.html",form=form)
 
-@auth.route("/user")
+@auth.route("/form")
+@login_required
 def user():
-    query = db_alchemy.select([User.email,User.username]).where(db_alchemy.and_(User.username == 'rodrick'))
-    users = db.session.execute(query)
-    return render_template("users.html",user=users)
+    query = db_alchemy.select(['*']).where(db_alchemy.and_(Form.user_id == current_user.id))
+    forms = db.session.execute(query)
+    return render_template("forms.html",forms=forms)
 
-@auth.route("/doctor")
-def doctor():
-    query = db_alchemy.select([Doctor.email,Doctor.username])
-    doctors = db.session.execute(query)
-    return render_template("doctors.html",doctor=doctors)
+"""@auth.route("/user")
+    def user():
+        query = db_alchemy.select([User.email,User.username]).where(db_alchemy.and_(User.username == 'rodrick'))
+        users = db.session.execute(query)
+        return render_template("users.html",user=users)"""
 
 @auth.route("/edit")
 @login_required
@@ -180,24 +181,35 @@ def health():
 def upload():
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     target_img = os.path.join('website','static','images','test')
-    if request.form.get('gender') is None or request.form.get('age') is None or request.form.get('burns') is None or request.form.get('moles') is None or request.form.get('inherit') is None or request.form.get('area') == "" or request.form.get('color') == "":
-        flash("Please fill all appropriate responses","error")
-        return render_template("health.html", profile_pic=profile_pic)
     if not os.path.exists(target_img):
         os.makedirs(target_img)
     if request.method == 'POST':
+        if request.form.get('gender') is None or request.form.get('age') is None or request.form.get('burns') is None or request.form.get('moles') is None or request.form.get('inherit') is None or request.form.get('area') == "" or request.form.get('color') == "":
+            flash("Please fill all appropriate responses","error")
+            return render_template("health.html", profile_pic=profile_pic)
         if not request.files:
-            flash("Invalid file", 'error')
+            flash("Invalid file!", 'error')
             return render_template("health.html", profile_pic=profile_pic)
         file = request.files['file']
         if not file or not allowed_file(file.filename):
             flash("Please upload images of jpg, jpeg and png extension only!", 'error')
             return render_template("health.html", profile_pic=profile_pic)
         else:
-            target_img = os.path.join('website','static','images','test')
-            file.save(os.path.join(target_img, file.filename))
             img = file.filename
-            return render_template("success.html", img=img)
+            encoder = str(uuid.uuid4())
+            _, f_ext = os.path.splitext(img)
+            img = encoder + f_ext
+            img_path = os.path.join(target_img,img)
+            form = Form(email=current_user.email, age=request.form.get('age'),
+            burns=request.form.get('burns'), spread=request.form.get('moles'),
+            diabetes=(request.form.get('diabetes')=="diabetes"), asthma=(request.form.get('asthma')=="asthma"),
+            thyroid=(request.form.get('thyroid')=="thyroid"), infection=(request.form.get('infection')=="infection"),
+            family=(request.form.get('inherit')=="inherit"), spot=request.form.get('area'),
+            color=request.form.get('color'), image=img_path, user_id=current_user.id)
+            db.session.add(form)
+            db.session.commit()
+            file.save(img_path)
+            return render_template("success.html",img=img)
 
 #check if file is supported type
 def allowed_file(filename):
@@ -230,7 +242,7 @@ def predict(filename , model):
 def analyze(filename):
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     target_img = os.path.join('website','static','images','test')
-    img_path = os.path.join(target_img , filename)
+    img_path = os.path.join(target_img, filename)
     factor, probability = predict(img_path,model)
     return render_template('tool.html', img=filename, profile_pic=profile_pic, fact=factor, prob=probability)
 

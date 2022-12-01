@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div id="main_slider" class="carousel slide" data-ride="carousel">
+   <div class="carousel-inner">
+      <div class="banner_section">
+           <div class="carousel-item active">
+               <div class="layout_padding">
+                   <h2 align="center" class="health_taital light_blue">My Forms</h2>
+               </div>
+               {% if forms %}
+                  <div class="news_section_2 layout_padding">
+                  {% for form in forms %}
+                  <ul class="float_start row list-group-flush">
+                     <a href="">
+                        <li class="list-group-item">
+                           <p class="float_start"><b>Owner:</b> {{ form.email }}<br><b>Spot:</b> {{ form.spot }}<br><b>Color:</b> {{ form.color }}</p>
+                           <p class="float_end"><b>Last Created:</b> {{ form.datetime }}</p>
+                           <button type="button" class="close" onClick="deleteForm({{ form.id }})">
+                              <span aria-hidden="true">&times;</span>
+                           </button> 
+                        </li>
+                     </a>
+                  </ul>
+                  {% endfor %}
+                  </div>
+               {% endif %}
+           </div>
+       </div>
+   </div>
+</div>
+{% endblock %}

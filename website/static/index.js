@@ -3,6 +3,6 @@ function deleteForm(formId) {
     method: "POST",
     body: JSON.stringify({ formId: formId }),
   }).then((_res) => {
-    window.location.href = "/";
+    window.location.href = "/form";
   });
 }

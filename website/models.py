@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     length = db.Column(db.Integer, nullable=False)
-    doctor = db.Column(db.Boolean, nullable=False)
+    doctor = db.Column(db.Boolean, nullable=False, default=False)
     fee = db.Column(db.Float, nullable=True)
     image = db.Column(db.String(20), nullable=False, default="default.png")
     form_id = db.relationship('Form', backref="Case", lazy="dynamic",foreign_keys="Form.user_id")
@@ -33,9 +33,9 @@ class User(db.Model, UserMixin):
 
 class Form(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String, primary_key=True)
-    ageGroup = db.Column(db.String(60), nullable=False)
-    skinBurns = db.Column(db.String(60), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    age = db.Column(db.String(60), nullable=False)
+    burns = db.Column(db.String(60), nullable=False)
     spread = db.Column(db.String(60), nullable=False)
     diabetes = db.Column(db.Boolean, nullable=False)
     asthma = db.Column(db.Boolean, nullable=False)
@@ -44,7 +44,8 @@ class Form(db.Model):
     family = db.Column(db.Boolean, nullable=False)
     spot = db.Column(db.String(60), nullable=False)
     color = db.Column(db.String(60), nullable=False)
-    prediction = db.Column(db.String(120), nullable=False)
+    image = db.Column(db.String(20), nullable=False)
+    datetime = db.Column(db.DateTime(timezone=True), nullable=False, default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class Report(db.Model):
