@@ -310,11 +310,6 @@ def form():
 @login_required
 def view(formId):
     form = Form.query.filter_by(id=formId).first()
-    if request.method == 'POST':
-        form.doctor_id = current_user.id
-        form.protected = True
-        db.session.commit()
-        return redirect(url_for("views.home"))
     user = User.query.filter_by(id=form.user_id).first()
     doc = User.query.filter_by(id=form.doctor_id).first()
     img_path = os.path.join('website','static','images','test',form.image)
@@ -327,10 +322,12 @@ def send(formId):
     form = Form.query.filter_by(id=formId).first()
     user = User.query.filter_by(id=form.user_id).first()
     doc = User.query.filter_by(id=form.doctor_id).first()
+    img_path = os.path.join('website','static','images','test',form.image)
+    factor, probability = predict(img_path,model)
+    profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     form.protected = True
     db.session.commit()
-    profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
-    return render_template("success1.html",user=user,doc=doc,form=form,profile_pic=profile_pic)   
+    return render_template("success1.html",user=user,doc=doc,form=form,profile_pic=profile_pic)       
 
 @auth.route('/report/<formId>/<note>')
 def report(formId,note):

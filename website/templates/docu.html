@@ -83,20 +83,19 @@
         <p class="health_text light_blue">{{ doc.username }}'s Notes:</p>
         <textarea class="form-control" readonly="">{{ form.content }}</textarea>
     </fieldset>
-    {% else %}
-    </fieldset>
-    <div align="center">
-        <textarea id="notes" class="form-control" placeholder="Enter your Description here..."></textarea>
-        <br>
-        <button type="button" class="btn btn-primary form-group" onClick="getText({{ form.id }})">Add Note</button>
-    </div>
-    
     <div align="center" class="">
         {% if form.protected %}
         <p>Report Sent!</p><br>
         {% else %}
         <button type="button" onClick="sendForm({{ form.id }})" class="btn btn-primary form-group">Send Report ></button>
         {% endif %}
+    </div>
+    {% else %}
+    </fieldset>
+    <div align="center">
+        <textarea id="notes" class="form-control" placeholder="Enter your Description here..."></textarea>
+        <br>
+        <button type="button" class="btn btn-primary form-group" onClick="getText({{ form.id }})">Add Note</button>
     </div>
     {% endif %}
 </div>
