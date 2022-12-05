@@ -1,11 +1,28 @@
 {% extends "base.html" %} {% block title %}Health Analysis{% endblock %}
 {% block content%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../static/riskScore.js"></script>
+<style>
+   .result{
+    float: inherit;
+    width: inherit;
+    display: flex;
+ }
+   .result01{   
+    display: inline-flex;
+    column-gap: 10px;
+   }
+   ul {
+       float: left;
+       width: 33.33%;
+    }
+</style>
 <!-- health section start -->
 <div class="health_section layout_padding">
    <div class="container">
-      <h1 class="health_taital">Kindly Answer Few Questions </h1>
+      <h1 class="health_taital light_blue">Kindly Answer Few Questions </h1>
       <p class="health_text">Your responses will be 100% secure with us and will only be shared to the doctors at your consent </p>
-      <div class="health_section layout_padding">
+      <div class="health_section">
          <div class="row">
             <div class="col-sm-7"></div>
          </div>
@@ -13,115 +30,148 @@
    </div>
 </div>
 <!-- health section end -->
-<form class="contact" method="post" action="/upload" enctype="multipart/form-data">
-         
+<form id="form" class="contact" method="post" action="/upload" enctype="multipart/form-data">      
    <div class="col50 colleft">
-      <div class="col50 colleft">
-         <div class="wd50">
-            <label name="gender">What is your Gender ?</label><br>
-            <input type="radio" name="gender" value="male"/>
-               <label for="child">Male</label><br>
-               <input type="radio" name="gender" value="female"/>
-               <label for="child">Female</label><br>
-         </div>
+      <div class="wd50">
+         <label>What is your gender?</label><br>
+         <input type="radio" id="Male" name="gender" value="Male">
+         <label for="gender">Male</label><br>
+         <input type="radio" id="Female" name="gender" value="Female">
+         <label for="gender">Female</label><br>
+         <input type="radio" id="NonBinary" name="gender" value="Non-binary">
+         <label for="gender">Non-binary</label><br>
+         <input type="radio" id="PreferNot" name="gender" value="Prefer not to say">
+         <label for="gender">Prefer not to say</label><br>
+      </div>
       <div class="wd100"><hr></div>
-      <div class="col50 colright">
+         <div class="col50 colright">
          <div class="wd50">
-            <label>Choose your age group :</label><br>
-            <input type="radio" name="age" value="below40"/>
+            <label name="">Choose your age group :</label><br>
+            <input type="radio" id="40-" name="age" value="Below 40">
             <label for="age">Below 40</label><br>
-            <input type="radio" name="age" value="40&59"/>
-            <label for="age">Between 40 and 60</label><br>
-            <input type="radio" name="age" value="60above"/>
-            <label for="age">Above 60</label><br>
-         </div>
-      </div>
-
-      <div class="wd100"><hr></div>
-
-      <div class="col50 colright">
-         <div class="wd50">
-            <label name="">Did your skin burnout when you go out in sun ?</label><br>
-
-            <input type="radio" name="burns" value="yes"/>
-            <label for="child">Yes the skin burns</label><br>
-            <input type="radio" name="burns" value="sometimes"/>
-            <label for="child">No, it sometimes get burn</label><br>
-            <input type="radio" name="burns" value="tan"/>
-            <label for="child">It just gets tan</label><br>
+            <input type="radio" id="40-59" name="age" value="Between 40 and 59">
+            <label for="age">40-59</label><br>
+            <input type="radio" id="60+" name="age" value="Above 60">
+            <label for="age">Above 60</label><br> 
          </div>
       </div>
       <div class="wd100"><hr></div>
       <div class="col50 colright">
          <div class="wd50">
-            <label>How many moles or lump do you have on your body ?</label><br>
-            <input type="radio" name="moles" value="many"/>
-            <label for="child">Many </label><br>
-            <input type="radio" name="moles" value="few"/>
-            <label for="child">Few</label><br>
-            <input type="radio" name="moles" value="none"/>
-            <label for="child">None</label><br>
+            <label name="">Did your skin burnout when you go out in sun?</label><br>
+            <input type="radio" id="burnYes" name="skinBurn" value="burnYes"/>
+            <label for="skinBurn">Yes the skin burns</label><br>
+            <input type="radio" id="burnNo" name="skinBurn" value="burnNo"/>
+            <label for="skinBurn">No, it doesn't burn</label><br>
+            <input type="radio" id="burnTan" name="skinBurn" value="burnTan"/>
+            <label for="skinBurn">It just gets tan</label><br>
+         </div>
+      </div>
+      <div class="wd100"><hr></div>
+      <div class="col50 colright">
+         <div class="wd50">
+            <label>How many moles or lump do you have on your body?</label><br>
+            <input type="radio" id="moleYes" name="skinMole" value="moleYes"/>
+            <label for="skinMole">Many</label><br>
+            <input type="radio" id="moleFew" name="skinMole" value="moleFew"/>
+            <label for="skinMole">Few</label><br>
+            <input type="radio" id="moleNo" name="skinMole" value="moleNo"/>
+            <label for="skinMole">None</label><br>
          </div>  
       </div>
-      <div class="col50 colright"></div>
-   </div>
-   
-   <div class="wd100"><hr></div>
-   
-   <div class="col50 colright">
-      <div class="wd50">
-         <p>Check All the previous health problems that apply : </p>
-         <label><input type="checkbox" name="diabetes" value="diabetes"> Diabetes</label>
-         <label><input type="checkbox" name="asthma" value="asthma"> Asthma</label>
-         <label><input type="checkbox" name="thyroid" value="thyroid"> Thyroid</label>
-         <label><input type="checkbox" name="blood" value="blood"> Blood Infection</label>            
+      <div class="wd100"><hr></div>
+      <div class="col50 colright">
+         <div class="wd50">
+            <p>Check All the previous health problems that apply: </p>
+            <label><input type="checkbox" name="Diabetes" value="Diabetes"> Diabetes</label>
+            <label><input type="checkbox" name="Asthma" value="Asthma"> Asthma</label>
+            <label><input type="checkbox" name="Thyroid" value="Thyroid"> Thyroid</label>
+            <label><input type="checkbox" name="BloodInfection" value="Blood Infection"> Blood Infection</label>            
+         </div>
       </div>
-   
-   </div>
-   
-   <div class="wd100"><hr></div>
-
-   <div class="wd50">
-      <p>Does Any of your family member has melanoma</p>
-      <input type="radio" name="inherit" value="yes"/>
-      <label for="child">Yes</label>
-      <input type="radio" name="inherit" value="no"/>
-      <label for="child">No</label>
-   </div>
-
-   <div class="wd50">
+      <div class="wd100"><hr></div>
+      <div class="col50 colright">
+         <label name="simDisease">Do you have any other similar type of skin disease ?(e.g. Psoriasis, Cherry Angioma, Nevus)</label><br>
+         <input type="radio" id="simYes" name="simDisease" value="simYes">
+         <label for="simDisease">Yes</label><br>
+         <input type="radio" id="simNo" name="simDisease" value="simNo">
+         <label for="simDisease">No</label><br>
+      </div>
+      <div class="wd100"><hr></div>
+      <div>
+         <div class="wd50">
+         <label name="familyHistory">Does any family member have melanoma?</label><br>
+         <input type="radio" id="familyYes" name="familyHistory" value="familyYes">
+         <label for="familyHistory">Yes</label><br>
+         <input type="radio" id="familyNo" name="familyHistory" value="familyNo">
+         <label for="familyHistory">No</label><br>
+      </div>
+      <div class="wd100"><hr></div>
       <div class="col50 colleft">
          <div class="wd50">
-            <label for="area">Affected Area</label>
+            <label for="area">Affected Area: </label>
             <input name="area" type="text"/>
          </div>
       </div>
-      <div class="wd50">
-         <div class="col50 colleft">
-            <div class="wd50">
-               <label for="color">Color of the Spot</label>
-               <input name="color" type="text"/>
-            </div>
+      <div class="col50 colleft">
+         <div class="wd50">
+            <label for="color">Color of the Spot: </label>
+            <input name="color" type="text"/>
          </div>
       </div>
-      <div class="wd50">
-         <div class="col50 colleft">
-            <div class="wd50">
-               <input name="file" type="file" placeholder="Choose file"/>
-            </div>
+      <div class="wd100">
+         <input type="button" id="calculate" class="btn btn-primary float_end" value="Calculate" onclick="getTotal()"/>
+         <p style="color:#f13030;font-weight:bold;">Risk Analysis Score: <input id="result" name="result"/></p>
+      </div>
+      <div class="result">
+         <div class="result01">
+            <ul style="list-style-type:disc;">
+               <h3 style="background-color: #f13030; color: #ffffff; padding: 10px; font-weight: 300;">Score: 7+ Risk: High </h3>
+               <p>What to do now ...</p>
+               <li> &#x2022; Book for a doctor appointment as soon as possible</li>
+               <li> &#x2022; Get your whole skin body test at the latest</li>
+               <li> &#x2022; Check on our analysis tool every 3 months</li>
+               <li> &#x2022; Skan your skin for cuts regularly</li>
+            </ul>
+            <ul style="list-style-type:circle;">
+               <h3 style="background-color: #f16730; color: #ffffff; padding: 10px; font-weight: 300;">Score: 3 to 7 Risk: Medium</h3>
+               <p>What to do now ...</p>
+               <li> &#x2022; See a doctor for full body scan </li>
+               <li> &#x2022; Get your full body scan 2-3 years</li>
+               <li> &#x2022; Have a chat with nutritionist</li>
+            </ul>
+            <ul style="list-style-type:circle;">
+               <h3 style="background-color: #899800; color: #ffffff; padding: 10px; font-weight: 300;">Score: 0 to 3 Risk: Low</h3>
+               <p>What to do now ...</p>
+               <li> &#x2022; See a doctor if you have any concers or injuries </li>
+               <li> &#x2022; Scan your skin for any injuries or wounds once a year</li>
+               <li span style="color: #e55c26;"> &#x2022; Remember – Low risk does not mean NO risk.</span></li>
+            </ul>
          </div>
       </div>
-      <div class="wd50">
-         <div class="col50 colleft">
-            <div class="wd50">
-               <button name="submit" class="btn btn-primary" type="submit">Submit</button>
-            </div>
+      <div class="col50">
+         <div class="wd50 form-group">
+            <input name="file" type="file" placeholder="Choose file"/>
+         </div>
+      </div>
+      {% if doctors %}
+         <div class="wd100 health_taital form-group">
+            <label>Choose your doctor below to proceed:</label>
+         </div>
+         <div class="form-group news_section_2 row">
+            {% for doc in doctors %}
+            <img class="profile" src="{{ url_for('static', filename='images/profile_pics/'+doc.image) }}">
+            <label class="float_end">{{ doc.username }}</label><br>
+            <input class="profile float_end" type="radio" name="doctor" value="{{ doc.id }}">
+            
+            {% endfor %}
+         </div>
+      {% endif %}
+      <div class="col50 form-group">
+         <div class="wd50">
+            <button name="submit" class="btn btn-primary" type="submit">Submit</button>
          </div>
       </div>
    </div>
 </form>
 {% endblock %}
-    
-        
-  
-   

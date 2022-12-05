@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% block title %}{% if current_user.doctor == True %}Report{% else %}Form{% endif %} #{{ form.id }} Submitted{% endblock %}{% block content %}
+<link rel="stylesheet" type= "text/css" href="../static/css/style1.css">
+<div id="main_slider" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+       <div class="banner_section">
+            <div align="center" class="carousel-item active">
+                <div class="layout_padding">
+                    <h2 class="health_taital light_blue">Hooray! Your form is submitted!</h2>
+                </div>
+                {% if current_user.doctor == True %}
+                <blockquote class="health_text light_blue">
+                Your report has been submitted to Patient <b>{{ user.username }} !</b></blockquote><br>
+                <h4 class="daily_text">Payment of ${{ doc.fee }} has been advised as the fee per session. Thank you for your service!</h4>
+                {% else %}
+                <blockquote class="health_text light_blue">
+                Your form has been submitted to <b>{{ doc.username }} !</b></blockquote><br>
+                <h4 class="daily_text">Please expect a response within a few hours. Your patience is appreciated!</h4>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

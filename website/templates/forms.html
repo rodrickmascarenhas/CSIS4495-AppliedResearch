@@ -1,27 +1,33 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+{% extends "base.html" %} {% block title %}Forms{% endblock %} {% block content
 %}
 <div id="main_slider" class="carousel slide" data-ride="carousel">
    <div class="carousel-inner">
       <div class="banner_section">
            <div class="carousel-item active">
                <div class="layout_padding">
-                   <h2 align="center" class="health_taital light_blue">My Forms</h2>
+                  <h2 align="center" class="health_taital light_blue">Forms</h2>
                </div>
                {% if forms %}
                   <div class="news_section_2 layout_padding">
-                  {% for form in forms %}
-                  <ul class="float_start row list-group-flush">
-                     <a href="">
-                        <li class="list-group-item">
-                           <p class="float_start"><b>Owner:</b> {{ form.email }}<br><b>Spot:</b> {{ form.spot }}<br><b>Color:</b> {{ form.color }}</p>
-                           <p class="float_end"><b>Last Created:</b> {{ form.datetime }}</p>
-                           <button type="button" class="close" onClick="deleteForm({{ form.id }})">
-                              <span aria-hidden="true">&times;</span>
-                           </button> 
-                        </li>
-                     </a>
-                  </ul>
-                  {% endfor %}
+                     {% for form in forms %}
+                     <div class="client_section col-sm-2">
+                        <button type="button" class="close" onClick="deleteForm({{ form.id }})">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                        <button type="button" class="close" onClick="viewForm({{ form.id }})">
+                           <ul class="list-group-flush">
+                              <li class="list-group-item">
+                                 <h5 class="light_blue"><b>Form {{ loop.index }}</b></h5>
+                                 <h6><br>
+                                    <b>Patient:</b> {% for user in users %}{% if user.id == form.user_id %}{{ user.username }}{% endif %}{% endfor %}<br>
+                                    <b>Doctor:</b> {% for user in users %}{% if user.id == form.doctor_id %}{{ user.username }}{% endif %}{% endfor %}<br>
+                                    <b>Spot:</b> {{ form.spot }}<br>
+                                    <b>Color:</b> {{ form.color }}<br>
+                              </li>
+                           </ul>
+                        </button>
+                     </div>
+                     {% endfor %}
                   </div>
                {% endif %}
            </div>

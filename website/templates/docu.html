@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% block title %}Form #{{ form.id }}{% endblock %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="../static/css/style2.css">
+<div style="background-color: azure;" class="col50 colleft">
+    {% if current_user.doctor %}
+    <h1 align=center class="health_taital light_blue test-results-header">MEDICAL REPORT </h1>
+    {% else %}
+    <h1 align=center class="health_taital light_blue test-results-header">Personal Assessment Form</h1>
+    {% endif %}
+    <div class="wd501">
+        <label>Patient#: <b class="light_blue">{{ user.username }}</b></label><br>
+    </div>
+    <div class="wd501">
+        <label>Doctor#: <b class="light_blue">{{ doc.username }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Gender: <b class="light_blue">{{ form.gender }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Age Group: <b class="light_blue">{{ form.age }}</b></label><br>
+    </div>
+    <div class="wd501">
+        <label>Does your skin burn when you go out in the sun? <b class="light_blue">
+        {% if form.skinBurn=='burnYes' %}
+        Yes
+        {% elif form.skinBurn=='burnNo' %}
+        No
+        {% else %}
+        Just a sun tan
+        {% endif %}
+        </b></label><br>
+    </div>
+    <div class="wd501">
+        <label>How many moles or lump do you have on your body? <b class="light_blue">
+        {% if form.skinMole=='moleYes' %}
+        Many
+        {% elif form.skinMole=='moleFew' %}
+        Few
+        {% else %}
+        None
+        {% endif %}
+        </b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Diabetes: <b class="light_blue">{{ form.diabetes }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Asthma: <b class="light_blue">{{ form.asthma }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Thyroid: <b class="light_blue">{{ form.thyroid }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Blood Infection: <b class="light_blue">{{ form.infection }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Similar type of skin disease(e.g. Psoriasis, Cherry angioma, Nevus): <b class="light_blue">{{ form.issue }}</b></label><br>
+    </div>
+    <div class="wd501">
+    <label>Does any family member have melanoma? <b class="light_blue">{{ form.family }}</b></label><br>
+    </div>
+    <div class="wd501">
+        <label>Risk Analysis Questionaire Score: <b class="light_blue">{{ form.risk }}</b></label><br>
+    </div>
+    <div align="center" class="wd501">
+        <img class="form-group" height="220" width="220" src="{{ url_for('static', filename='images/test/'+form.image) }}"/>
+    </div>
+    <div align="center">    
+        <p class="health_taital">Predicted Probabilities (%)</p>
+    </div>
+    <table align="center" class="form-group">
+    <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>
+    {% for i in range(3) %}
+    <tr>
+        <td>#{{ i+1 }}</td>
+        <td>{{ fact[i] }}</td>
+        <td>{{ prob[i] }}%</td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% if current_user.doctor == False %}
+    <fieldset align="center" class="form-group">
+        <p class="health_text light_blue">{{ doc.username }}'s Notes:</p>
+        <textarea class="form-control" readonly="">{{ form.content }}</textarea>
+    </fieldset>
+    {% else %}
+    </fieldset>
+    <div align="center">
+        <textarea id="notes" class="form-control" placeholder="Enter your Description here..."></textarea>
+        <br>
+        <button type="button" class="btn btn-primary form-group" onClick="getText({{ form.id }})">Add Note</button>
+    </div>
+    
+    <div align="center" class="">
+        {% if form.protected %}
+        <p>Report Sent!</p><br>
+        {% else %}
+        <button type="button" onClick="sendForm({{ form.id }})" class="btn btn-primary form-group">Send Report ></button>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

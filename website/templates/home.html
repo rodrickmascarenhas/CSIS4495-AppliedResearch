@@ -1,5 +1,8 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}{% block content
 %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+<link rel="stylesheet" type= "text/css" href="../static/css/style1.css">
+<script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
 <div id="main_slider" class="carousel slide" data-ride="carousel">
    <div class="carousel-inner">
       <div class="banner_section">
@@ -31,23 +34,39 @@
                   <div class="row">
                      <div class="col-lg-4 col-sm-6">
                         <a href="/health">
-                           <div class="box_main">
+                           <div class="box_main1">
                                  <div class="icon_1">
-                                    <img src="{{ url_for('static',filename='images/icon-3.png') }}">
+                                    <img src="{{ url_for('static',filename='images/icon-6.png') }}">
                                  </div>
-                                 <h4 class="daily_text_1">24/7 Analysis Tool</h4>
+                                 <h4 class="daily_text_1">24/7 Analysis Tool </h4>
                            </div>
                         </a>
                      </div>
                      <div class="col-lg-4 col-sm-6">
-                        <a href="#">
-                           <div class="box_main">
-                                 <div class="icon_1">
-                                    <img src="{{ url_for('static',filename='images/icon-2.png') }}">
-                                 </div>
-                                 <h4 class="daily_text_1">Chat with an expert</h4>
+                        <div class="box_main1">
+                              <div class="icon_1">
+                                 <img src="{{ url_for('static',filename='images/icon-2.png') }}">
+                              </div>
+                              <h4 class="daily_text_1">Chat with certified specialists</h4>
+                        </div>
+                        <button class="btn-chat">
+                           <i class="material-icons">comment</i>
+                        </button>
+                        <div class="popup-chat">
+                           <div class="title">Virtual Assistant</div>
+                           <div class="badge">1</div>
+                           <div class="chat-window">
+                              <div class="bot-msg">
+                                 <img src="img/bot.jpeg" alt="" class="picture">
+                                 <span class="msg">Hi, how may I assist you?</span>
+                              </div>
                            </div>
-                        </a>
+                           <div class="input-area">
+                              <input type="text" id="txtInput"/>
+                              <button id="btn-emoji">&#127773;</button>
+                              <button class="btn-send"><i class="material-icons">send</i></button>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -56,4 +75,41 @@
       </div>
    </div>
 </div>
+<script>
+   const emojiBtn = document.querySelector('#btn-emoji');
+const picker = new EmojiButton();
+const btnChat = document.querySelector('.btn-chat');
+const popup = document.querySelector('.popup-chat');
+const btnSend = document.querySelector('.btn-send');
+const chatWindow = document.querySelector('.chat-window');
+const txtInput = document.querySelector('#txtInput');
+
+// Emoji selection
+window.addEventListener('DOMContentLoaded', () => {
+
+    picker.on('emoji', emoji => {
+        document.querySelector('input').value += emoji;
+    });
+
+    emojiBtn.addEventListener('click', () => {
+        picker.togglePicker(emojiBtn);
+    });
+});
+
+btnChat.addEventListener('click', ()=>{
+    popup.classList.toggle('showWindow');
+})
+
+btnSend.addEventListener('click', ()=>{
+    let userInput = txtInput.value;
+
+    let temp = `<div class="out-msg">
+    <span class="my-msg">${userInput}</span>
+    <img src="img/me.jpeg" class="picture">
+    </div>`;
+
+    chatWindow.insertAdjacentHTML("beforeend", temp);
+    txtInput.value = '';
+})
+</script>
 {% endblock %}

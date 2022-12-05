@@ -7,10 +7,10 @@
                     <p align="center" class="health_taital light_blue">Skin Cancer Probability Assessment</p>
                 </div>
                 <div align="center" class="layout_padding">
-                    <img height="280" width="280" src={{ url_for('static', filename='images/test/'+img) }}/>
+                    <img height="280" width="280" src="{{ url_for('static', filename='images/test/'+img) }}"/>
                 </div>
                 <div align="center" class="layout_padding">    
-                    <p align="center" class="health_taital">Predicted Probabilities (in %)</p>
+                    <p class="health_taital">Predicted Probabilities (in %)</p>
                 </div>
                 <table class="table">
                     <tr><th>S.No</th><th>Result</th><th>Probability</th></tr>

@@ -25,7 +25,7 @@
 html {
     scroll-behavior: smooth;
 }
-/* changes */
+
 ul.submenu, ul.submenuTitle:link{
     display:none;
 }
@@ -153,7 +153,7 @@ img {
     max-width: 100%;
     height: auto;
 }
-/*changes*/
+
 table{
     width: 50%;
     height: 20%;
@@ -228,7 +228,10 @@ button {
     padding-top: 90px;
     padding-bottom: 0px;
 }
-
+.logo {
+    width: 42%;
+    float: left;
+}
 .header_section {
     top: 0;
     width: 100%;
@@ -238,12 +241,6 @@ button {
     padding: 10px 0px 25px 0px;
     background-repeat: no-repeat;
 }
-
-.logo {
-    width: 42%;
-    float: left;
-}
-
 .bg-light {
     background-color: transparent !important;
 }
@@ -651,14 +648,11 @@ input.doc_button:hover, input.pat_button:hover
 }
 
 .daily_text {
-    width: 40%;
     margin: 0 auto;
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
     display: block;
     color: #fff;
-    line-height: 30px;
 }
 
 .daily_text_1 {
@@ -721,7 +715,6 @@ input.doc_button:hover, input.pat_button:hover
     width: 100%;
     float: left;
     text-align: center;
-    padding-bottom: 20px;
     line-height: 95px;
 }
 
@@ -735,16 +728,14 @@ input.doc_button:hover, input.pat_button:hover
 }
 
 .float_start {
-    width:30%;
+    width:10%;
     float: left;
-    font: lighter;
 }
 
 .float_end {
-    width:30%;
+    width:10%;
     float: none;
     clear: right;
-    font: lighter;
 }
 
 .diabetes_text {
@@ -824,7 +815,7 @@ input.doc_button:hover, input.pat_button:hover
 }
 
 .client_taital {
-    width: 100%;
+    width: 50%;
     float: left;
     font-size: 40px;
     text-align: center;
@@ -1044,4 +1035,3 @@ input.Enter_text::placeholder {
 .margin_90 {
     margin: 90px 0px;
 }
-

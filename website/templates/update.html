@@ -1,97 +1,108 @@
 {% extends "base.html" %} {% block title %}myAccount{% endblock %} {% block content %}
-<form method="POST" action="" enctype="multipart/form-data">
-    <h3 align="center">myAccount Settings</h3>
-    <div class="form-group navbar-collapse">
-        <img class="nav-item profile" style="width:100px;height:100px;" src="{{ profile_pic }}">
-        <a href="/edit/image"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
-        {% if edit_image %}
-            {{ form.image(class="form-control-file") }}
-            {% if form.image.errors %}
-                {% for error in form.image.errors %}
-                    <span class="text-danger">{{ error }}</span><br/>
-                {% endfor %}
-            {% endif %}
-        {%endif%}
-    </div>
-    <div class="form-group navbar-collapse">
-        <label>Username: </label>
-        {{ current_user.username }}
-        <a href="/edit/username"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
-        {% if edit_username %}
-        {% if form.username.errors %}
-            {{ form.username(class="form-control is-invalid")}}
-            <div class="invalid-feedback">
-                {% for error in form.username.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            {{ form.username(class="form-control") }}
-        {% endif %}
-        {%endif%}
-    </div>
-    <div class="form-group navbar-collapse">
-        <label>Email: </label>
-        {{ current_user.email }}
-        <a href="/edit/email"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
-        {% if edit_email %}
-        {% if form.email.errors %}
-            {{ form.email(class="form-control is-invalid")}}
-            <div class="invalid-feedback">
-                {% for error in form.email.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            {{ form.email(class="form-control") }}
-        {% endif %}
-        {% endif %}
-    </div>
-    <div class="form-group navbar-collapse">
-        <label>Password: </label>
-        {% for i in range(0,current_user.length) %}
-           <li style="display:inline-block;">*</li>
-        {% endfor %}
-        <a href="/edit/password"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
-        {% if edit_password %}
-            <br/>{{ form.current.label() }}
-            {% if form.current.errors %}
-            {{ form.current(class="form-control is-invalid") }}
-            <div class="invalid-feedback">
-                {% for error in form.current.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-            {% else %}
-                {{ form.current(class="form-control") }}
-            {% endif %}
-            <br/>{{ form.new.label() }}
-            {% if form.new.errors %}
-                {{ form.new(class="form-control is-invalid")}}
-                <div class="invalid-feedback">
-                    {% for error in form.new.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
+<div id="main_slider" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+       <div class="banner_section">
+            <div class="carousel-item active">
+                <div class="layout_padding">
+                   <h2 align="center" class="health_taital light_blue">myAccount Settings</h2>
                 </div>
-            {% else %}
-                {{ form.new(class="form-control") }}
-            {% endif %}
-            <br/>{{ form.confirm_new.label() }}
-            {% if form.confirm_new.errors %}
-                {{ form.confirm_new(class="form-control is-invalid")}}
-                <div class="invalid-feedback">
-                    {% for error in form.confirm_new.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-            {% else %}
-                {{ form.confirm_new(class="form-control") }}
-            {% endif %}
-            <br/>
-        {% endif %}
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <h3 align="center"></h3>
+                    <div class="form-group navbar-collapse">
+                        <img class="nav-item profile" style="width:100px;height:100px;" src="{{ profile_pic }}">
+                        <a href="/edit/image"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
+                        {% if edit_image %}
+                            {{ form.image(class="form-control-file") }}
+                            {% if form.image.errors %}
+                                {% for error in form.image.errors %}
+                                    <span class="text-danger">{{ error }}</span><br/>
+                                {% endfor %}
+                            {% endif %}
+                        {%endif%}
+                    </div>
+                    <div class="form-group navbar-collapse">
+                        <label>Username: </label>
+                        {{ current_user.username }}
+                        <a href="/edit/username"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
+                        {% if edit_username %}
+                        {% if form.username.errors %}
+                            {{ form.username(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class="form-control") }}
+                        {% endif %}
+                        {%endif%}
+                    </div>
+                    <div class="form-group navbar-collapse">
+                        <label>Email: </label>
+                        {{ current_user.email }}
+                        <a href="/edit/email"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
+                        {% if edit_email %}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control") }}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    <div class="form-group navbar-collapse">
+                        <label>Password: </label>
+                        {% for i in range(0,current_user.length) %}
+                           <li style="display:inline-block;">*</li>
+                        {% endfor %}
+                        <a href="/edit/password"><img style="width:50px;height:50px;" src="../static/images/edit_write.png"></a>
+                        {% if edit_password %}
+                            <br/>{{ form.current.label() }}
+                            {% if form.current.errors %}
+                            {{ form.current(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.current.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.current(class="form-control") }}
+                            {% endif %}
+                            <br/>{{ form.new.label() }}
+                            {% if form.new.errors %}
+                                {{ form.new(class="form-control is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.new.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.new(class="form-control") }}
+                            {% endif %}
+                            <br/>{{ form.confirm_new.label() }}
+                            {% if form.confirm_new.errors %}
+                                {{ form.confirm_new(class="form-control is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.confirm_new.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.confirm_new(class="form-control") }}
+                            {% endif %}
+                            <br/>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-primary")}}
+                    </div>
+                  </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        {{ form.submit(class="btn btn-primary")}}
-    </div>
-  </form>
+ </div>
   {% endblock %}

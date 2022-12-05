@@ -1,0 +1,30 @@
+.test-results-header,.wd50,.effectedarea{
+    text-align: center;
+}
+.wd50{
+  margin-top: 10px; margin-bottom: 50px; margin-left: 10px; margin-right: 10px;
+}
+.colleft{
+  border: 5px double black;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.wd501,.wd503{
+    padding-left: 10px;
+
+}
+.wd503{
+  text-align:left;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+textarea {
+  overflow:scroll;
+  width: 90%; 
+ }
+ textarea:focus { 
+  background-color: rgb(220, 255, 220);
+  font: italic black;
+ }

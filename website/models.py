@@ -13,8 +13,7 @@ class User(db.Model, UserMixin):
     doctor = db.Column(db.Boolean, nullable=False, default=False)
     fee = db.Column(db.Float, nullable=True)
     image = db.Column(db.String(20), nullable=False, default="default.png")
-    form_id = db.relationship('Form', backref="Case", lazy="dynamic",foreign_keys="Form.user_id")
-    report_id = db.relationship('Report', backref="Reporter", lazy="dynamic",foreign_keys="Report.user_id")
+    user_id = db.relationship('Form', backref="Case", lazy="dynamic",foreign_keys="Form.user_id")
 
     def __repr__(self):
         return f"User('{self.username}','{self.email}','{self.image}','{self.posts}')"
@@ -33,7 +32,7 @@ class User(db.Model, UserMixin):
 
 class Form(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), nullable=False)
+    gender = db.Column(db.String(60), nullable=False)
     age = db.Column(db.String(60), nullable=False)
     burns = db.Column(db.String(60), nullable=False)
     spread = db.Column(db.String(60), nullable=False)
@@ -42,17 +41,13 @@ class Form(db.Model):
     thyroid = db.Column(db.Boolean, nullable=False)
     infection = db.Column(db.Boolean, nullable=False)
     family = db.Column(db.Boolean, nullable=False)
+    issue = db.Column(db.Boolean, nullable=False)
+    risk = db.Column(db.Integer, nullable=False)
     spot = db.Column(db.String(60), nullable=False)
     color = db.Column(db.String(60), nullable=False)
     image = db.Column(db.String(20), nullable=False)
     datetime = db.Column(db.DateTime(timezone=True), nullable=False, default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-class Report(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    datetime = db.Column(db.DateTime(timezone=True), nullable=False, default=func.now())
-    content = db.Column(db.Text, nullable=False)
-    note = db.Column(db.Integer, db.ForeignKey('user.id'))
-    protected = db.Column(db.Boolean, nullable=False, default=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    doctor_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    content = db.Column(db.String(200), nullable=True)
+    protected = db.Column(db.Boolean, default=False)

@@ -13,7 +13,7 @@
          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
          crossorigin="anonymous"></script>
        <script
-         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.10/js/bootstrap.min.js"
          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
          crossorigin="anonymous"></script>
        <script
@@ -54,27 +54,27 @@
             </ul>
             <ul class="navbar-collapse"></ul>
             <ul class="navbar-collapse right">
-               {% if current_user.is_authenticated %}   
+               {% if current_user.is_authenticated %}
                   <li>
                      <a class="nav-link" href="/">Home</a>
                   </li>
                   <li>
-                     <a class="nav-link" href="/health">Analysis Tool</a>
-                  </li>
-                  <li>
                      <a class="nav-link" href="/form">Forms</a>
                   </li>
+                  {% if current_user.doctor == False %}
+                  <li>
+                     <a class="nav-link" href="/health">Analysis Tool</a>
+                  </li>
+                  {% endif %}
                   <li>
                      <a class="nav-link" href="/logout">Logout</a>
                   </li>
-                  {% if profile_pic %}
-                     <li>   
-                        <a class="nav-link" href="/edit"><h5>{{ current_user.username }}</h5></a>
-                     </li>
-                     <li>
-                        <img class="nav-item profile" src="{{ profile_pic }}" />
-                     </li>
-                  {% endif %}
+                  <li>   
+                     <a class="nav-link" href="/edit"><h5>{{ current_user.username }}</h5></a>
+                  </li>
+                  <li>
+                     <img class="nav-item profile" src="{{ profile_pic }}" />
+                  </li>
                {% else %}
                   <li>
                      <a class="nav-link" href="/login">Login</a>
@@ -112,6 +112,7 @@
          <div class="layout_padding">
             <div class="row">
                <div class="col-lg-3 col-sm-6">
+                  
                   <div class="footer_logo"><a href="index.html">
                      <img src="{{ url_for('static',filename='images/skincare.png') }}">
                   </a></div>

@@ -8,26 +8,26 @@
                     <h2 align="center" class="health_taital light_blue">Hooray! Your form is submitted!</h2>
                 </div>
                 <div class="news_section layout_padding">
-                    <h3 class="health_taital">You can choose either analyze your pic or consult one of our specialists...</h3>
+                    <p class="health_taital">Choose whether to analyze your picture or view your form before submission</p>
                     <div class="news_section_2 layout_padding">
                         <div class="row">
-                            <a class="col-lg-4 col-sm-6" href="/analyze/{{ img }}">
+                            <a class="col-lg-4 col-sm-6" href="/analyze/{{ form.image }}">
                                 <div class="box_main1">
                                     <div class="icon_1">
                                         <img src="{{ url_for('static',filename='images/icon-6.png') }}">
                                     </div>
-                                    <h4 class="daily_text_1">Run Prediction Tool</h4>
+                                    <h5 class="daily_text_1">Run Analysis</h5>
                                 </div>
                             </a>
                             <div class="col-lg-4 col-sm-6">
                                 <h4 align="center" class="health_taital icon_1 light_blue">Or</h4>
                             </div>
-                            <a class="col-lg-4 col-sm-6" href="#">
+                            <a class="col-lg-4 col-sm-6" href="/form/{{ form.id }}">
                                 <div class="box_main1">
                                     <div class="icon_1">
                                         <img src="{{ url_for('static',filename='images/icon-2.png') }}">
                                     </div>
-                                    <h4 class="daily_text_1">Consult a Doctor</h4>
+                                    <h5 class="daily_text_1">Consult a Doctor</h5>
                                 </div>
                             </a>
                         </div>
