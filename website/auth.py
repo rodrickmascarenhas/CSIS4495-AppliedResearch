@@ -14,6 +14,7 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 auth = Blueprint('auth', __name__)
 model = load_model(os.path.join(os.getcwd(), 'cancerdetection.hdf5'))
+
 ALLOWED_EXT = set(['jpg','jpeg','png','jfif'])
 classes = {0:"Actinic keratoses",1:"Basal cell carcinoma",2:"Benign keratosis-like lesions",3:"Dermatofibroma",
 4:"Melanoma",5:"Melanocytic nevi",6:"Vascular lesions"}
@@ -322,8 +323,6 @@ def send(formId):
     form = Form.query.filter_by(id=formId).first()
     user = User.query.filter_by(id=form.user_id).first()
     doc = User.query.filter_by(id=form.doctor_id).first()
-    img_path = os.path.join('website','static','images','test',form.image)
-    factor, probability = predict(img_path,model)
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     form.protected = True
     db.session.commit()
@@ -334,8 +333,6 @@ def report(formId,note):
     form = Form.query.filter_by(id=formId).first()
     user = User.query.filter_by(id=form.user_id).first()
     doc = User.query.filter_by(id=form.doctor_id).first()
-    img_path = os.path.join('website','static','images','test',form.image)
-    factor, probability = predict(img_path,model)
     profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
     if len(note)<10:
         flash("Note is too short. Please describe the solution as clearly possible!","error")

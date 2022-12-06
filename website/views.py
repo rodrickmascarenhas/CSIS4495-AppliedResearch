@@ -6,6 +6,7 @@ import json
 
 views = Blueprint('views', __name__)
 
+# home page
 @views.route('/', methods=['GET','POST'])
 @login_required
 def home():
@@ -15,6 +16,7 @@ def home():
     else:
         return render_template("home.html",profile_pic=profile_pic)
 
+# view the analysis form
 @views.route('/view-form', methods=['GET','POST'])
 def view_form():
     form = json.loads(request.data)
@@ -24,6 +26,7 @@ def view_form():
         return redirect(url_for("auth.view"),formId=formId)
     return jsonify({})
 
+# delete the analysis form
 @views.route('/delete-form', methods=['GET','POST'])
 def delete_form():
     form = json.loads(request.data)
@@ -34,6 +37,7 @@ def delete_form():
         db.session.commit()
     return jsonify({})
 
+# send the analysis form to doctor
 @views.route('/send-form', methods=['GET','POST'])
 def send_form():
     form = json.loads(request.data)
@@ -43,6 +47,7 @@ def send_form():
         return redirect(url_for("auth.send"),formId=formId)
     return jsonify({})
 
+# doctor adds a note to report
 @views.route('/add-note', methods=['GET','POST'])
 def add_note():
     form = json.loads(request.data)

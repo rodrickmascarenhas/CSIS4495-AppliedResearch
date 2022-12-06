@@ -1,0 +1,166 @@
+    {% extends "base.html" %} {% block title %}Health Analysis{% endblock %} {% block content%}
+       
+        <div class="start">  <h2>Appointment Request Form</h2></div>
+        <div class="container">
+            <form action="">                
+                    <h1 style="color:green;">Contact Information</h1>
+                    <hr>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="phone">Phone</label>
+                    <input type="number" id="phone" name="phone" required>
+                    <h1 style="color:green;">Appointment Information</h1>
+                    <hr> 
+                   
+                    <div>
+                        <label for="date">Appointment Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    </div>   
+            
+                <label>Time interval</label><br>
+                    <input type="radio" id="morning" name="time_interval" value="Morning">
+                    <label for="morning">Morning</label><br>
+                    <input type="radio" id="afternoon" name="time_interval" value="Afternoon">
+                    <label for="afternoon">Afternoon</label><br>
+                    <input type="radio" id="evening" name="time_interval" value="Evening">
+                    <label for="evening">Evening</label><br><br>
+                    <label for="message">Appointment details</label>
+                    <textarea id="message" name="message" style="height:100px" required></textarea><br>
+                                                                            
+                    <label>Would you agree to reschedule the appointment, if needed?</label><br>
+                    <input type="radio" id="yes" name="attend" value="Yes">
+                    <label for="yes">Yes</label><br>
+                    <input type="radio" id="no" name="attend" value="No">
+                    <label for="no">No</label><br><br>
+                
+                                                            
+                <input type="submit" value="Submit" class="btn">
+            </form>                                   
+            </div>
+      
+            <style>
+    
+        * {
+        box-sizing: border-box;
+        }
+        .row {
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap; /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 16px;
+        }
+    
+    
+    
+        .col-50 {
+        -ms-flex: 50%; /* IE10 */
+        flex: 50%;
+        }
+    
+        .col-75 {
+        -ms-flex: 75%; /* IE10 */
+        flex: 100%;
+        }
+    
+        .col-25,
+        .col-50,
+        .col-75 {
+        padding: 0 16px;
+        }
+    
+        .container {
+        background-color: #ffffff;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid lightgrey;
+        border-radius: 50px;
+        max-width:500px;
+        margin:auto;
+        }
+    
+        .container1 {
+        background-color: #ffffff;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid rgb(255, 247, 247);
+        border-radius: 3px;
+        max-width:600px;
+        margin:auto;
+        }
+        input[type=text] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid rgb(255, 251, 251);
+        border-radius: 3px;
+        }
+        input[type=datetime-local] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 3px;
+        }
+
+        input[type=email],textarea, select {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+    
+        input[type=number] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+        input[type=text] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+        input[type=time] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+        input[type=date] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+    
+        .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        width: 100%;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 17px;
+        }
+    
+        .btn:hover {
+        background-color: #45a049;
+        }
+    
+    
+        .container{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+            </style>    
+    {% endblock %}

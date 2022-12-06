@@ -15,9 +15,11 @@ def create_app():
     from .models import User
     from .views import views
     from .auth import auth
+    from .chat import chat
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+    app.register_blueprint(chat, url_prefix='/')
 
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)

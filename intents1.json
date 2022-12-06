@@ -1,0 +1,46 @@
+{"intents": [
+        {"tag": "greet",
+         "patterns": ["Hi", "hey", "Hello", "Good day", "hey there"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Greeting"],
+         "context_set": ""
+        },
+        {"tag": "support",
+         "patterns": ["i need help", "i need support"],
+         "responses": ["How can i help?", "what can i do for you?"]
+        },
+        {"tag": "contact",
+         "patterns": ["how do i contact you?", "customer support", "how do i contact customer support?"],
+         "responses": ["Customer Support: +12345678.\n\nEmail: skincancerlab1234.gmail.com.ca.\n\nAddress: 1234 John st, Vancouver, BC, V1X3N2."]
+        },
+        {"tag": "hour",
+         "patterns": ["what time are you open?", "what are your working hours?", "what are your operating hours?", "are you open today?", "when do you open?" , "when will you be open until?",  "what are your hours of operation?"],
+         "responses": ["Operating Hours: 9am-4pm except Sunday and Holidays", "We are open at 9am to 4pm except Sunday and Holidays"]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Appreciate it"],
+         "responses": ["Happy to help! Is there anything else i can help you with?", "Any time! Is there anything else i can help you with?", "My pleasure. Is there anything else i can help you with?", "You're Welcome!! Is there anything else i can help you with?"]
+        },
+        {"tag": "prevent",
+         "patterns": ["How to prevent skin cancer?", "Skin cancer prevention", "how to protect your skin?", "protection", "prevention"],
+         "responses": ["1. Stay in the shade.\n\n2. Wear clothing that covers your arms and legs.\n\n3. Wear a hat with a wide brim to shade your face, head, ears, and neck.\n\n4. Wear sunglasses that wrap around and block both UVA and UVB rays.\n\n5. Use a broad spectrum sunscreen with a sun protection factor (SPF) of 15 or higher.\n\n6. Avoiding tanning and indoor tanning bed."]
+        },
+        {"tag": "screening",
+         "patterns": ["Are there screening test for skin cancer?", "Are there screening test?", "testing"],
+         "responses": ["According to USPSTF, there is not enough evidence to recommend for or against routine screening for early detection.\n\nReport any unusual moles or changes in your skin to your doctor."]
+        },
+        {"tag": "",
+         "patterns": [""],
+         "responses": ["Sorry i dont understand."]
+        },
+        {"tag": "cancerType",
+         "patterns": ["How many type of skin cancer are there?", "Types of skin cancer", "What are the types of skin cancer?"],
+         "responses": ["There are three major types of skin cancer: \n(1) Basal Cell Carcinoma.\n(2) Squamous Cell Carcinoma.\n(3)Melanoma.\n\nFor more information: https://www.cancer.org/cancer/skin-cancer.html"]
+        },
+        {"tag": "tips",
+         "patterns": ["How to tell if i have skin cancer?", "What are the sign of skin cancer?", "Signs of skin cancer", "What are the symptoms?", "tips?"],
+         "responses": ["Redness or new swelling beyond the border of a mole.\n\nColor that spreads from the border of a spot into surrounding skin.\n\nItching, pain, or tenderness in an area that doesn't go away or goes away then comes back.\n\nChanges in the surface of a mole: oozing, scaliness, bleeding, or the appearance of a lump or bump.\n\nFor more information: https://www.cancer.org/latest-news/how-to-spot-skin-cancer.html"]
+        }
+   ]
+}
+
+
