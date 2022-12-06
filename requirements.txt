@@ -6,3 +6,4 @@ itsdangerous
 flask-mail
 Flask-WTF
 itsdangerous
+nltk

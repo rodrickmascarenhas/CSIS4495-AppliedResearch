@@ -21,9 +21,9 @@
     </div>
     <div class="wd501">
         <label>Does your skin burn when you go out in the sun? <b class="light_blue">
-        {% if form.skinBurn=='burnYes' %}
+        {% if form.burns=='burnYes' %}
         Yes
-        {% elif form.skinBurn=='burnNo' %}
+        {% elif form.burns=='burnNo' %}
         No
         {% else %}
         Just a sun tan
@@ -32,9 +32,9 @@
     </div>
     <div class="wd501">
         <label>How many moles or lump do you have on your body? <b class="light_blue">
-        {% if form.skinMole=='moleYes' %}
+        {% if form.spread=='moleYes' %}
         Many
-        {% elif form.skinMole=='moleFew' %}
+        {% elif form.spread=='moleFew' %}
         Few
         {% else %}
         None

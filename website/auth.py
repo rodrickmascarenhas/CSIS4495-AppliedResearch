@@ -19,6 +19,12 @@ ALLOWED_EXT = set(['jpg','jpeg','png','jfif'])
 classes = {0:"Actinic keratoses",1:"Basal cell carcinoma",2:"Benign keratosis-like lesions",3:"Dermatofibroma",
 4:"Melanoma",5:"Melanocytic nevi",6:"Vascular lesions"}
 
+@auth.route('/appointment')
+@login_required
+def appointment():
+    profile_pic = url_for('static',filename='images/profile_pics/'+current_user.image)
+    return render_template("appointment.html", profile_pic=profile_pic)
+    
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
