@@ -1,19 +1,20 @@
 ### Setup & Installation
 
-Make sure you have the latest version of Python installed.
+#### Make sure you have the latest version of Python installed.
 
-<ol>
-  <li>Download the GitBash on your local PC</li>
-  <li>Type and copy-paste the following repository url in place of <repo-url>:<br>
-  git clone <repo-url> #view the app
-  </li>
-  <li>Go to folder which has the existing main.py file:<br>
-  python main.py #run the app
-  </li>
-  ```shell bash
+Download the GitBash on your local PC
+Type and copy-paste the following repository url in place of <repo-url>:<br>
+```bash
+  git clone <repo-url>
+```
+Go to folder which has the existing main.py file:<br>
+```bash
+  python main.py
+```
+Go to url in the browser:
+```bash
   http://127.0.0.1:5000
-  ```
-</ol>
+```
 <ol>
   Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python
   <li>
