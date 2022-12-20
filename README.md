@@ -10,7 +10,7 @@ Make sure you have the latest version of Python installed.
   <li>Go to folder which has the existing main.py file:<br>
   python main.py #run the app
   </li>
-  ```bash
+  ```shell bash
   http://127.0.0.1:5000
   ```
 </ol>
