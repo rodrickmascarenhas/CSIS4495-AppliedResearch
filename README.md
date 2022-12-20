@@ -5,18 +5,12 @@ Make sure you have the latest version of Python installed.
 <ol>
   <li>Download the GitBash on your local PC</li>
   <li>Type and copy-paste the following repository url in place of <repo-url>:<br>
-  ```bash
   git clone <repo-url> #view the app
-  ```
   </li>
   <li>Go to folder which has the existing main.py file:<br>
-  ```bash
   python main.py #run the app
-  ```
   </li>
-  <li>```bash
-  Go to `http://127.0.0.1:5000`
-  ```
+  <li>Go to `http://127.0.0.1:5000`
   </li>
 </ol>
 <ol>
@@ -26,8 +20,6 @@ Make sure you have the latest version of Python installed.
   <p>Canada’s Ministry of Youth has allocated enterprise development funds to both the youth and women. Government plans to start entrepreneurial ventures
   that support services for youth in the medical sector. An estimated budget of 4.5B dollars will support the implementation of 801 infrastructure projects
   in British Columbia.</p>
-  <div align="center">![image](https://user-images.githubusercontent.com/30309234/208759550-0ed84e82-caca-4d00-82f4-d066cb65229f.png)
-</div>
   <p>During recent years, the number of patients who have spent weeks waiting to see a doctor has increased significantly. Fraser Institute says, “a new 
   study shows Canada’s health-care wait times reached 25.6 weeks in 2021—the longest ever recorded—and 175 per cent higher than the 9.3 weeks Canadians 
   waited in 1993”. Services such as medical expert diagnoses and regular checkups are more frequent than we want it to be.</p>
@@ -66,14 +58,14 @@ Make sure you have the latest version of Python installed.
   ###Analysis Tool
   <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
 Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
-  <div align="center">![image](https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png)
+  <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" />
 </div><br>
   There appears to be no difference between male and female cancer formations over the skin.
-  <div align="center">![image](https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png)
+  <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
 </div><br>
   More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (followup),
   expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal).
-  <div align="center">![image](https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png)
+  <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
 </div><br>
   Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to data frame based on image_id.
   </li>
