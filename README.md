@@ -72,7 +72,10 @@ Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?p
   <li>
     Software Design Architecture
     <ul>
-    <li>User Friendly Experience<br>
+    <li>UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
+</div></li>
+    <li>Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png" /></div></li>
+      <li>User Friendly Experience<br>
     <p>A user-friendly website should satisfy the needs and expectations of its targeted audience. These pages ought to offer workable technological solutions that
     the audience expects. There are 5 factors that access the quality of website in terms of user-friendly behavior: Learnability, Efficiency, Memorability,
     Errors, Satisfaction</p>
@@ -98,11 +101,6 @@ Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?p
     The initial plan was to let the patient book an appointment for a consultation session with the certified specialists after making a payment, however, the
     appointment booking feature is not accessible and the payment gateway has not been implemented.</p>
     </li>
-    <li>UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
-</div></li>
-    <li>Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png" /></div></li>
     </ul>
   </li>
-  Use Cases
-  <li></li>
 </ol>
