@@ -10,11 +10,12 @@ Make sure you have the latest version of Python installed.
   <li>Go to folder which has the existing main.py file:<br>
   python main.py #run the app
   </li>
-  <li>Go to `http://127.0.0.1:5000`
-  </li>
+  ```bash
+  http://127.0.0.1:5000
+  ```
 </ol>
 <ol>
-  ## Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python
+  Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python
   <li>
   Introduction
   <p>Canada’s Ministry of Youth has allocated enterprise development funds to both the youth and women. Government plans to start entrepreneurial ventures
@@ -44,7 +45,7 @@ Make sure you have the latest version of Python installed.
   human operatives and instead they can focus on assisting the current customers.</p>
   </li>
   <li>
-  ###Virtual Assistant (Chatbot)
+  Virtual Assistant (Chatbot)
   </li>
   <ul>
   <li>Load dataset and create variables to store patterns and tags.</li>
