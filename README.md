@@ -98,9 +98,9 @@ Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?p
     The initial plan was to let the patient book an appointment for a consultation session with the certified specialists after making a payment, however, the
     appointment booking feature is not accessible and the payment gateway has not been implemented.</p>
     </li>
-    <li>###UML Diagram<br><div align="center">![image](https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png)
+    <li>###UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
 </div></li>
-    <li>###Sequence Diagram<br><div align="center">![image](https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png)</div></li>
+    <li>###Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png" /></div></li>
     </ul>
   </li>
   ###Use Cases
