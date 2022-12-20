@@ -16,7 +16,7 @@ Make sure you have the latest version of Python installed.
 <ol>
   ## Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python
   <li>
-  ###Introduction
+  Introduction
   <p>Canada’s Ministry of Youth has allocated enterprise development funds to both the youth and women. Government plans to start entrepreneurial ventures
   that support services for youth in the medical sector. An estimated budget of 4.5B dollars will support the implementation of 801 infrastructure projects
   in British Columbia.</p>
@@ -31,7 +31,7 @@ Make sure you have the latest version of Python installed.
   successfully, our application will examine the skin-color formation and provide medical solutions accordingly.</p>
   </li>
   <li>
-  ###Project Objectives
+  Project Objectives
   <p>The main objective of this project is to offer people a trusted platform for early detection of potential skin cancer by using Artificial Intelligence
   in Python Language. The users must first log in to access the analysis tool and potentially submit an assessment form to one of our doctors working with our
   platform, then they can either choose to “Check on Our Analysis Tool” or “Chat with a specialist”. For using the analysis tool, the user will be asked to
@@ -55,7 +55,7 @@ Make sure you have the latest version of Python installed.
   <li>Now let's call the chatbot and the results are the first screenshots.</li>
   </ul>
   <li>
-  ###Analysis Tool
+  Analysis Tool
   <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
 Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
   <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" />
@@ -70,21 +70,21 @@ Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?p
   Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to data frame based on image_id.
   </li>
   <li>
-    ###Software Design Architecture
+    Software Design Architecture
     <ul>
-    <li>###User Friendly Experience<br>
+    <li>User Friendly Experience<br>
     <p>A user-friendly website should satisfy the needs and expectations of its targeted audience. These pages ought to offer workable technological solutions that
     the audience expects. There are 5 factors that access the quality of website in terms of user-friendly behavior: Learnability, Efficiency, Memorability,
     Errors, Satisfaction</p>
     <p>Our prediction model was constructed using Keras. Our model ended up offering really excellent accuracy and assisting in delivering fairly decent outcomes.
     When forecasting the outcomes of various skin diseases, our model showed to be 72% accurate</p>
     </li>
-    <li>###Prediction Accuracy<br>
+    <li>Prediction Accuracy<br>
     <p>Although not a wide range of users have tested the website's interface. We have made an effort to create an interface that is simple enough for most users
     to grasp. In order to quickly steer the user to the route he desires and help him achieve his goals, we have used simple icons and a template framework.
     For e.g., We select symbols that make navigation simple for the user and make it	clear ahead of time what the user will be doing. The user won't have to spend
     much time debugging our programme as a result.</li>
-    <li>###Real Assessment Accuracy<br>
+    <li>Real Assessment Accuracy<br>
     <p>The core principle of our online application is our Risk Assessment Accuracy tool. The user uploads a picture to be tested, and our model built with Keras
     is runned down depending on that analysis. After that, we are given information on the many types of skin cancer that the photograph may show. Additionally,
     it displays the likelihood(probability)  as well as a brief summary of the specific form of skin cancer and its features.</p>
@@ -98,11 +98,11 @@ Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?p
     The initial plan was to let the patient book an appointment for a consultation session with the certified specialists after making a payment, however, the
     appointment booking feature is not accessible and the payment gateway has not been implemented.</p>
     </li>
-    <li>###UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
+    <li>UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
 </div></li>
-    <li>###Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png" /></div></li>
+    <li>Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png" /></div></li>
     </ul>
   </li>
-  ###Use Cases
+  Use Cases
   <li></li>
 </ol>
