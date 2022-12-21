@@ -48,29 +48,30 @@ Go to url in the browser:
   </li>
   <li>
     Virtual Assistant (Chatbot)
-    <ul>
+    <p><ul>
     <li>Load dataset and create variables to store patterns and tags.</li>
     <li>Using lemmatizer can effectively analyze synonym words for better chatbot training.</li>
     <li>Creating a Bag-of-Word model to group words with similar meaning together.</li>
     <li>Neural Network Model and training the model.</li>
     <li>Pre-processing the user’s input.</li>
     <li>Now let's call the chatbot and the results are the first screenshots.</li>
-    </ul>
+    </ul></p>
   </li>
   <li>
     Analysis Tool
     <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for
     our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
     <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
-    <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" /></div><br>
+    <div align="center"><img width=380 height=300 src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" />
+  </div><br>
     There appears to be no difference between male and female cancer formations over the skin.
-    <div align="center"><img width=250 height=250 src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
+    <div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
   </div><br>
     More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (followup),
     expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal).
-    <div align="center"><img width=250 height=250 src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
+    <div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
   </div><br>
-    Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to user's forms.
+    <p>Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to user's forms.</p>
   </li>
   <li>
     Software Design Architecture
