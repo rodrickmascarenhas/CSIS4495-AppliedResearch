@@ -63,23 +63,25 @@ Go to url in the browser:
     <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for
     our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
     <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
-    <div align="center"><img width=380 height=300 src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" />
-  </div><br>
+    <p><div align="center"><img width=380 height=300 src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" />
+    </div></p>
     There appears to be no difference between male and female cancer formations over the skin.
-    <div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
-  </div><br>
+    <p><div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
+    </div></p>
     More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (followup),
     expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal).
-    <div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
-  </div><br>
+    <p><div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
+    </div></p>
     <p>Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to user's forms.</p>
   </li>
   <li>
     <b>Software Design Architecture</b>
     <ul>
-    <li>UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
-</div></li>
-    <li>Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208931367-53b0abc9-5bc8-4e15-b6bb-c5a4f8ee47aa.png" /></div></li>
+    <li>UML Diagram
+      <p><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
+      </div></p></li>
+    <li>Sequence Diagram<p><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208931367-53b0abc9-5bc8-4e15-b6bb-c5a4f8ee47aa.png" />
+      </div></p></li>
       <li>User Friendly Experience<br>
     <p>A user-friendly website should satisfy the needs and expectations of its targeted audience. These pages ought to offer workable technological solutions that
     the audience expects. There are 5 factors that access the quality of website in terms of user-friendly behavior: Learnability, Efficiency, Memorability,
