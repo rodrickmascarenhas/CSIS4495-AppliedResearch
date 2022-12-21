@@ -93,7 +93,10 @@ Go to url in the browser:
     <p>Although not a wide range of users have tested the website's interface. We have made an effort to create an interface that is simple enough for most users
     to grasp. In order to quickly steer the user to the route he desires and help him achieve his goals, we have used simple icons and a template framework.
     For e.g., We select symbols that make navigation simple for the user and make it	clear ahead of time what the user will be doing. The user won't have to spend
-    much time debugging our programme as a result.</li>
+    much time debugging our programme as a result.</p>
+    <p><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208942434-39c8f646-0cc8-4755-99c1-0498838043b1.png" />
+    </div></p>
+    </li>
     <li>Risk Assessment Accuracy<br>
     <p>The core principle of our online application is our Risk Assessment Accuracy tool. The user uploads a picture to be tested, and our model built with Keras
     is runned down depending on that analysis. After that, we are given information on the many types of skin cancer that the photograph may show. Additionally,
