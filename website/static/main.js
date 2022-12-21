@@ -7,7 +7,6 @@ const btnSend = document.querySelector('.btn-send');
 const chatWindow = document.querySelector('.chat-window');
 const txtInput = document.querySelector('#txtInput');
 
-
 const form = document.querySelector('form');
 
 const scrollv = document.getElementById('scrollv')
@@ -56,7 +55,7 @@ btnSend.addEventListener('click', async(event)=>{
 
 let temp = `<div class="out-msg">
 <span class="my-msg">${userInput}</span>
-<img src="../static/images/me.jpeg" class="picture">
+<img src="../static/images/me.jpeg" class="picture" />
 </div>`;
 
 chatWindow.insertAdjacentHTML("beforeend", temp);
@@ -73,13 +72,4 @@ txtInput.value = ''
 
                     chatWindow.insertAdjacentHTML("beforeend", tempBot);
                      scrollSmoothlyToBottom()
-
 })
-
-
-
-
-
-
-
-
