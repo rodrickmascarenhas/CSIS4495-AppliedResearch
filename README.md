@@ -104,7 +104,7 @@ Go to url in the browser:
     <p><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208937664-b0def808-c4f2-489d-8f17-1ce7818c2399.png" />
     </div></p>
     </li>
-    <li>What are the benfits of using Flask?<br>
+    <li>What are the benefits of using Flask?<br>
     <p>Flask framework was chosen for this project as it is a lightweight web application framework designed to make getting started quick and easy, with the
     ability to scale up to complex applications. It offers a collection of libraries and packages that allow beginners to keep building on a “pre-built” framework,
     thus improving the workflow management. Moreover, the python language on Neural Network is also used to build our Analysis Tool and Virtual Assistant as
