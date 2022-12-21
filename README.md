@@ -15,68 +15,69 @@ Go to url in the browser:
 ```bash
   http://127.0.0.1:5000
 ```
+<h3>Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python</h3>
 <ol>
-  Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python
   <li>
-  Introduction
-  <p>Canada’s Ministry of Youth has allocated enterprise development funds to both the youth and women. Government plans to start entrepreneurial ventures
-  that support services for youth in the medical sector. An estimated budget of 4.5B dollars will support the implementation of 801 infrastructure projects
-  in British Columbia.</p>
-  <p>During recent years, the number of patients who have spent weeks waiting to see a doctor has increased significantly. Fraser Institute says, “a new 
-  study shows Canada’s health-care wait times reached 25.6 weeks in 2021—the longest ever recorded—and 175 per cent higher than the 9.3 weeks Canadians 
-  waited in 1993”. Services such as medical expert diagnoses and regular checkups are more frequent than we want it to be.</p>
-  <p>We are developing a new application powered by Machine Learning/Artificial intelligence (AI) that can detect various skin diseases known to medical 
-  science. Through statistical analyses and predictive models, we can reduce the wait times for patients from the number of weeks to hours through simple
-  and easy configuration steps. There is likelihood of risk with early predictions, still more advancements in AI.</p>
-  <p>The application will help British Columbians in reducing the amount of time they have to wait to get appointments from specialists. It would be 
-  advantageous for the patient to get themselves diagnosed at the early stage so that the disease is curable. Once the user is registered and verified
-  successfully, our application will examine the skin-color formation and provide medical solutions accordingly.</p>
+    Introduction
+    <p>Canada’s Ministry of Youth has allocated enterprise development funds to both the youth and women. Government plans to start entrepreneurial ventures
+    that support services for youth in the medical sector. An estimated budget of 4.5B dollars will support the implementation of 801 infrastructure projects
+    in British Columbia.</p>
+    <p>During recent years, the number of patients who have spent weeks waiting to see a doctor has increased significantly. Fraser Institute says, “a new 
+    study shows Canada’s health-care wait times reached 25.6 weeks in 2021—the longest ever recorded—and 175 per cent higher than the 9.3 weeks Canadians 
+    waited in 1993”. Services such as medical expert diagnoses and regular checkups are more frequent than we want it to be.</p>
+    <img src="https://user-images.githubusercontent.com/30309234/208931782-123b7a81-65db-45b5-9d79-1a1714b3173a.png" />
+    <p>We are developing a new application powered by Machine Learning/Artificial intelligence (AI) that can detect various skin diseases known to medical 
+    science. Through statistical analyses and predictive models, we can reduce the wait times for patients from the number of weeks to hours through simple
+    and easy configuration steps. There is likelihood of risk with early predictions, still more advancements in AI.</p>
+    <p>The application will help British Columbians in reducing the amount of time they have to wait to get appointments from specialists. It would be 
+    advantageous for the patient to get themselves diagnosed at the early stage so that the disease is curable. Once the user is registered and verified
+    successfully, our application will examine the skin-color formation and provide medical solutions accordingly.</p>
   </li>
   <li>
-  Project Objectives
-  <p>The main objective of this project is to offer people a trusted platform for early detection of potential skin cancer by using Artificial Intelligence
-  in Python Language. The users must first log in to access the analysis tool and potentially submit an assessment form to one of our doctors working with our
-  platform, then they can either choose to “Check on Our Analysis Tool” or “Chat with a specialist”. For using the analysis tool, the user will be asked to
-  answer a questionnaire that would help to improve the prediction accuracy along with uploading a photo of the affected skin area.</p>
-  <p>Our Artificial Intelligence (AI) will predict and provide a result based on what type of skin cancer the user might have and is powerful enough to detect
-  the differences in moles, scratch, scabs or skin cancer, therefore, the outcome is highly accurate. In addition, the description is included for each of the
-  seven classes of skin lesions that will be displayed when the user hovers over the question mark icon. This enables users to understand more about the pigmentation,
-  whether it is benign or malignant skin formation, what early signs of benign or malignant lesions could be if they are validated by dermatopathologists.
-  Additionally, there is a chatbot which would help to answer the most frequently asked questions from visitors, thus easing the stress of customer support on
-  human operatives and instead they can focus on assisting the current customers.</p>
+    Project Objectives
+    <p>The main objective of this project is to offer people a trusted platform for early detection of potential skin cancer by using Artificial Intelligence
+    in Python Language. The users must first log in to access the analysis tool and potentially submit an assessment form to one of our doctors working with our
+    platform, then they can either choose to “Check on Our Analysis Tool” or “Chat with a specialist”. For using the analysis tool, the user will be asked to
+    answer a questionnaire that would help to improve the prediction accuracy along with uploading a photo of the affected skin area.</p>
+    <p>Our Artificial Intelligence (AI) will predict and provide a result based on what type of skin cancer the user might have and is powerful enough to detect
+    the differences in moles, scratch, scabs or skin cancer, therefore, the outcome is highly accurate. In addition, the description is included for each of the
+    seven classes of skin lesions that will be displayed when the user hovers over the question mark icon. This enables users to understand more about the
+    pigmentation, whether it is benign or malignant skin formation, what early signs of benign or malignant lesions could be if they are validated by
+    dermatopathologists. Additionally, there is a chatbot which would help to answer the most frequently asked questions from visitors, thus easing the stress
+    of customer support on human operatives and instead they can focus on assisting the current customers.</p>
   </li>
   <li>
-  Virtual Assistant (Chatbot)
+    Virtual Assistant (Chatbot)
+    <ul>
+    <li>Load dataset and create variables to store patterns and tags.</li>
+    <li>Using lemmatizer can effectively analyze synonym words for better chatbot training.</li>
+    <li>Creating a Bag-of-Word model to group words with similar meaning together.</li>
+    <li>Neural Network Model and training the model.</li>
+    <li>Pre-processing the user’s input.</li>
+    <li>Now let's call the chatbot and the results are the first screenshots.</li>
+    </ul>
   </li>
-  <ul>
-  <li>Load dataset and create variables to store patterns and tags.</li>
-  <li>Using lemmatizer can effectively analyze synonym words for better chatbot training.</li>
-  <li>Creating a Bag-of-Word model to group words with similar meaning together.</li>
-  <li>Neural Network Model and training the model.</li>
-  <li>Pre-processing the user’s input.</li>
-  <li>Now let's call the chatbot and the results are the first screenshots.</li>
-  </ul>
   <li>
-  Analysis Tool
-  <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
-Using data obtained from: <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
-  <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" />
-</div><br>
-  There appears to be no difference between male and female cancer formations over the skin.
-  <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
-</div><br>
-  More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (followup),
-  expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal).
-  <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
-</div><br>
-  Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to data frame based on image_id.
+    Analysis Tool
+    <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for
+    our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
+    <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
+    <div align="center"><img src="https://user-images.githubusercontent.com/30309234/208763727-c8cb4a3e-a057-465d-a6c9-a320c187f84a.png" /></div><br>
+    There appears to be no difference between male and female cancer formations over the skin.
+    <div align="center"><img width=250 height=250 src="https://user-images.githubusercontent.com/30309234/208763825-143f2a6b-641f-421d-86a4-a8d0e8132099.png" />
+  </div><br>
+    More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (followup),
+    expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal).
+    <div align="center"><img width=250 height=250 src="https://user-images.githubusercontent.com/30309234/208764423-736c8aa3-ea24-452c-aa62-924ba9f35727.png" />
+  </div><br>
+    Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to user's forms.
   </li>
   <li>
     Software Design Architecture
     <ul>
     <li>UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
 </div></li>
-    <li>Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759179-93c222ae-cee9-4132-98ef-c40ee83f281a.png" /></div></li>
+    <li>Sequence Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208931367-53b0abc9-5bc8-4e15-b6bb-c5a4f8ee47aa.png" /></div></li>
       <li>User Friendly Experience<br>
     <p>A user-friendly website should satisfy the needs and expectations of its targeted audience. These pages ought to offer workable technological solutions that
     the audience expects. There are 5 factors that access the quality of website in terms of user-friendly behavior: Learnability, Efficiency, Memorability,
