@@ -94,7 +94,7 @@ Go to url in the browser:
     to grasp. In order to quickly steer the user to the route he desires and help him achieve his goals, we have used simple icons and a template framework.
     For e.g., We select symbols that make navigation simple for the user and make it	clear ahead of time what the user will be doing. The user won't have to spend
     much time debugging our programme as a result.</p>
-    <p><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208942434-39c8f646-0cc8-4755-99c1-0498838043b1.png" />
+    <p><div align="center"><img width=300 height=300 src="https://user-images.githubusercontent.com/30309234/208942434-39c8f646-0cc8-4755-99c1-0498838043b1.png" />
     </div></p>
     </li>
     <li>Risk Assessment Accuracy<br>
