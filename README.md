@@ -98,6 +98,8 @@ Go to url in the browser:
     <p>The core principle of our online application is our Risk Assessment Accuracy tool. The user uploads a picture to be tested, and our model built with Keras
     is runned down depending on that analysis. After that, we are given information on the many types of skin cancer that the photograph may show. Additionally,
     it displays the likelihood(probability)  as well as a brief summary of the specific form of skin cancer and its features.</p>
+    <p><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208937664-b0def808-c4f2-489d-8f17-1ce7818c2399.png" />
+    </div></p>
     </li>
     <li>
     <p>Flask framework was chosen for this project as it is a lightweight web application framework designed to make getting started quick and easy, with the
