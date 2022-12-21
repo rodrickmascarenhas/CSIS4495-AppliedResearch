@@ -18,14 +18,14 @@ Go to url in the browser:
 <h3>Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python</h3>
 <ol>
   <li>
-    Introduction
+    <b>Introduction</b>
     <p>Canada’s Ministry of Youth has allocated enterprise development funds to both the youth and women. Government plans to start entrepreneurial ventures
     that support services for youth in the medical sector. An estimated budget of 4.5B dollars will support the implementation of 801 infrastructure projects
     in British Columbia.</p>
     <p>During recent years, the number of patients who have spent weeks waiting to see a doctor has increased significantly. Fraser Institute says, “a new 
     study shows Canada’s health-care wait times reached 25.6 weeks in 2021—the longest ever recorded—and 175 per cent higher than the 9.3 weeks Canadians 
     waited in 1993”. Services such as medical expert diagnoses and regular checkups are more frequent than we want it to be.</p>
-    <img src="https://user-images.githubusercontent.com/30309234/208931782-123b7a81-65db-45b5-9d79-1a1714b3173a.png" />
+    <img width=380 height=300 src="https://user-images.githubusercontent.com/30309234/208931782-123b7a81-65db-45b5-9d79-1a1714b3173a.png" />
     <p>We are developing a new application powered by Machine Learning/Artificial intelligence (AI) that can detect various skin diseases known to medical 
     science. Through statistical analyses and predictive models, we can reduce the wait times for patients from the number of weeks to hours through simple
     and easy configuration steps. There is likelihood of risk with early predictions, still more advancements in AI.</p>
@@ -34,7 +34,7 @@ Go to url in the browser:
     successfully, our application will examine the skin-color formation and provide medical solutions accordingly.</p>
   </li>
   <li>
-    Project Objectives
+    <b>Project Objectives</b>
     <p>The main objective of this project is to offer people a trusted platform for early detection of potential skin cancer by using Artificial Intelligence
     in Python Language. The users must first log in to access the analysis tool and potentially submit an assessment form to one of our doctors working with our
     platform, then they can either choose to “Check on Our Analysis Tool” or “Chat with a specialist”. For using the analysis tool, the user will be asked to
@@ -47,7 +47,7 @@ Go to url in the browser:
     of customer support on human operatives and instead they can focus on assisting the current customers.</p>
   </li>
   <li>
-    Virtual Assistant (Chatbot)
+    <b>Virtual Assistant (Chatbot)</b>
     <p><ul>
     <li>Load dataset and create variables to store patterns and tags.</li>
     <li>Using lemmatizer can effectively analyze synonym words for better chatbot training.</li>
@@ -58,7 +58,7 @@ Go to url in the browser:
     </ul></p>
   </li>
   <li>
-    Analysis Tool
+    <b>Analysis Tool</b>
     <p>Successfully built a neural network model capable of doing predictions over new, unobserved image files. We’re using Jupyter notebook to develop code for
     our application which will be converted into a .hdf5 file suitable for Flask to handle. Below, we have the source and structure of the model’s configuration:
     <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T">Harvard Datasets</a></p>
@@ -74,7 +74,7 @@ Go to url in the browser:
     <p>Patients of ages between 30 and 60 makeup 68% of all cases recorded in skin diseases. Images will be added to user's forms.</p>
   </li>
   <li>
-    Software Design Architecture
+    <b>Software Design Architecture</b>
     <ul>
     <li>UML Diagram<br><div align="center"><img src="https://user-images.githubusercontent.com/30309234/208759427-8b53c067-489f-4bd7-88ce-aa89a0993629.png" />
 </div></li>
@@ -91,7 +91,7 @@ Go to url in the browser:
     to grasp. In order to quickly steer the user to the route he desires and help him achieve his goals, we have used simple icons and a template framework.
     For e.g., We select symbols that make navigation simple for the user and make it	clear ahead of time what the user will be doing. The user won't have to spend
     much time debugging our programme as a result.</li>
-    <li>Real Assessment Accuracy<br>
+    <li>Risk Assessment Accuracy<br>
     <p>The core principle of our online application is our Risk Assessment Accuracy tool. The user uploads a picture to be tested, and our model built with Keras
     is runned down depending on that analysis. After that, we are given information on the many types of skin cancer that the photograph may show. Additionally,
     it displays the likelihood(probability)  as well as a brief summary of the specific form of skin cancer and its features.</p>
