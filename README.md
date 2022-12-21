@@ -25,7 +25,8 @@ Go to url in the browser:
     <p>During recent years, the number of patients who have spent weeks waiting to see a doctor has increased significantly. Fraser Institute says, “a new 
     study shows Canada’s health-care wait times reached 25.6 weeks in 2021—the longest ever recorded—and 175 per cent higher than the 9.3 weeks Canadians 
     waited in 1993”. Services such as medical expert diagnoses and regular checkups are more frequent than we want it to be.</p>
-    <img width=380 height=300 src="https://user-images.githubusercontent.com/30309234/208931782-123b7a81-65db-45b5-9d79-1a1714b3173a.png" />
+    <div align="center"><img width=380 height=300 src="https://user-images.githubusercontent.com/30309234/208931782-123b7a81-65db-45b5-9d79-1a1714b3173a.png" />
+  </div><br>
     <p>We are developing a new application powered by Machine Learning/Artificial intelligence (AI) that can detect various skin diseases known to medical 
     science. Through statistical analyses and predictive models, we can reduce the wait times for patients from the number of weeks to hours through simple
     and easy configuration steps. There is likelihood of risk with early predictions, still more advancements in AI.</p>
