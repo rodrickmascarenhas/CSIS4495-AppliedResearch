@@ -1,5 +1,9 @@
 ### Setup & Installation
 
+Project was deployed on Google App Engine flexible environment using python 3.7 or higher.
+```bash
+  https://research-project-4495-387702.uw.r.appspot.com/
+```
 #### Make sure you have the latest version of Python installed.
 
 Download the GitBash on your local PC
@@ -14,7 +18,8 @@ Go to folder which has the existing main.py file:<br>
 Go to url in the browser:
 ```bash
   http://127.0.0.1:5000
-```
+``` 
+ 
 <h3>Medical Reporting Service Application detecting early skin diseases using Flask, SQLAlchemy and Python</h3>
 <ol>
   <li>
