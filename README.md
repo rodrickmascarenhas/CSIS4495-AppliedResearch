@@ -121,3 +121,21 @@ Go to url in the browser:
     </ul>
   </li>
 </ol>
+
+Add the local files to GitHub repository
+Copy-paste the following command in Git:<br>
+```bash
+  git add .
+```
+
+Commit the updates to GitHub repository
+Type the following commit in place of "commit_name" in Git:<br>
+```bash
+  git commit -m "commit_name"
+```
+
+Push the updates to main branch
+Copy-paste the following command in Git:<br>
+```bash
+  git push -u origin main
+```
